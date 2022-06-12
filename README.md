@@ -1,2 +1,2 @@
 # DISERTATIE
-v1.0 CRUD Angajati
+v1.0 Interfata + CRUD Angajati
