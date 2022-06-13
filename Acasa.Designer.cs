@@ -36,9 +36,13 @@ namespace GESTIUNEANGAJATI
             this.buttonAngajati = new System.Windows.Forms.Button();
             this.buttonAcasa = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelJos = new System.Windows.Forms.Panel();
             this.panelForme = new System.Windows.Forms.Panel();
             this.panelMeniu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMeniu
@@ -72,6 +76,7 @@ namespace GESTIUNEANGAJATI
             this.buttonDeconectare.Text = "Deconectare";
             this.buttonDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDeconectare.UseVisualStyleBackColor = true;
+            this.buttonDeconectare.Click += new System.EventHandler(this.buttonDeconectare_Click);
             // 
             // buttonRapoarte
             // 
@@ -88,6 +93,7 @@ namespace GESTIUNEANGAJATI
             this.buttonRapoarte.Text = "Rapoarte";
             this.buttonRapoarte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRapoarte.UseVisualStyleBackColor = true;
+            this.buttonRapoarte.Click += new System.EventHandler(this.buttonRapoarte_Click);
             // 
             // buttonSalarii
             // 
@@ -104,6 +110,7 @@ namespace GESTIUNEANGAJATI
             this.buttonSalarii.Text = "Salarii";
             this.buttonSalarii.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSalarii.UseVisualStyleBackColor = true;
+            this.buttonSalarii.Click += new System.EventHandler(this.buttonSalarii_Click);
             // 
             // buttonAngajati
             // 
@@ -138,14 +145,40 @@ namespace GESTIUNEANGAJATI
             this.buttonAcasa.Text = "Acasa";
             this.buttonAcasa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAcasa.UseVisualStyleBackColor = true;
+            this.buttonAcasa.Click += new System.EventHandler(this.buttonAcasa_Click);
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.label1);
+            this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(250, 150);
             this.panelLogo.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.SystemColors.Info;
+            this.label1.Location = new System.Drawing.Point(0, 120);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(90, 10, 0, 0);
+            this.label1.Size = new System.Drawing.Size(150, 33);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Admin";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::GESTIUNEANGAJATI.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 120);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panelJos
             // 
@@ -180,6 +213,9 @@ namespace GESTIUNEANGAJATI
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Acasa_Load);
             this.panelMeniu.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            this.panelLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -195,6 +231,8 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelJos;
         private System.Windows.Forms.Panel panelForme;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

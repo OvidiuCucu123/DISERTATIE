@@ -21,24 +21,49 @@ namespace GESTIUNEANGAJATI
         {
 
         }
-        private Form FormaActiva = null;
-        private void openChildFormInPanel(Form childForm)
+        private Form FereastraActiva = null;
+        private void DeschideFereastraNoua(Form FereastraNoua)
         {
-            if (FormaActiva != null)
-                FormaActiva.Close();
-            FormaActiva = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelForme.Controls.Add(childForm);
-            panelForme.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            if (FereastraActiva != null)
+                FereastraActiva.Close();
+            
+            FereastraActiva = FereastraNoua;
+            FereastraNoua.TopLevel = false;
+            FereastraNoua.FormBorderStyle = FormBorderStyle.None;
+            FereastraNoua.Dock = DockStyle.Fill;
+            
+            panelForme.Controls.Add(FereastraNoua);
+            panelForme.Tag = FereastraNoua;
+            
+            FereastraNoua.BringToFront();
+            FereastraNoua.Show();
         }
 
         private void buttonAngajati_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new Angajat());
+            DeschideFereastraNoua(new Angajat());
+        }
+
+        private void buttonAcasa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSalarii_Click(object sender, EventArgs e)
+        {
+            DeschideFereastraNoua(new Salarii());
+        }
+
+        private void buttonRapoarte_Click(object sender, EventArgs e)
+        {
+            DeschideFereastraNoua(new Rapoarte());
+        }
+
+        private void buttonDeconectare_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Logare PagLogin = new Logare();
+            PagLogin.Show();
         }
     }
 }
