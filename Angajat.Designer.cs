@@ -31,6 +31,7 @@ namespace GESTIUNEANGAJATI
         {
             this.Utilizator = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.AfisDate = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -70,6 +71,7 @@ namespace GESTIUNEANGAJATI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.AfisDate);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -95,6 +97,20 @@ namespace GESTIUNEANGAJATI
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(402, 386);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(127, 42);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Resetare";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AfisDate
             // 
             this.AfisDate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -103,8 +119,10 @@ namespace GESTIUNEANGAJATI
             this.AfisDate.Name = "AfisDate";
             this.AfisDate.RowHeadersWidth = 51;
             this.AfisDate.RowTemplate.Height = 29;
+            this.AfisDate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AfisDate.Size = new System.Drawing.Size(857, 663);
             this.AfisDate.TabIndex = 18;
+            this.AfisDate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AfisDate_CellClick);
             // 
             // button3
             // 
@@ -132,6 +150,7 @@ namespace GESTIUNEANGAJATI
             this.button2.TabIndex = 16;
             this.button2.Text = "Editeaza";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -342,5 +361,6 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.DataGridView AfisDate;
         private System.Windows.Forms.TextBox AngajatIdTb;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button4;
     }
 }
