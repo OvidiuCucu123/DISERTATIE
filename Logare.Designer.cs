@@ -62,6 +62,7 @@ namespace GESTIUNEANGAJATI
             // 
             this.PassTextBox.Location = new System.Drawing.Point(217, 220);
             this.PassTextBox.Name = "PassTextBox";
+            this.PassTextBox.PasswordChar = '*';
             this.PassTextBox.Size = new System.Drawing.Size(214, 27);
             this.PassTextBox.TabIndex = 2;
             // 
