@@ -16,7 +16,8 @@ namespace GESTIUNEANGAJATI
         {
             InitializeComponent();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ovidiu\Documents\Angajati.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection ConexiuneBaza = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ovidiu\Documents\Angajati.mdf;Integrated Security=True;Connect Timeout=30");
+       
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -44,29 +45,28 @@ namespace GESTIUNEANGAJATI
                 MessageBox.Show("Toate campurile sunt obligatorii");
             }
             else
-            {
-
-             
-                    using (SqlCommand command = new SqlCommand())
+            {             
+                    using (SqlCommand Adaugare = new SqlCommand())
                     {
-                        command.Connection = Con;
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = "INSERT into AngajatiTbl (AngajatId, Nume, Adresa, Telefon, DataAngajare, Functia, Departament) VALUES (@AngajatIdTb, @NumeTb, @AdresaTb, @TelefonTb, @DataAngajareCb, @FunctiaCb, @DepartamentCb)";
-                        command.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
-                        command.Parameters.AddWithValue("@NumeTb", NumeTb.Text);
-                        command.Parameters.AddWithValue("@AdresaTb", AdresaTb.Text);
-                        command.Parameters.AddWithValue("@TelefonTb", TelefonTb.Text);
-                        command.Parameters.AddWithValue("@DataAngajareCb", DataAngajareCb.Text);
-                        command.Parameters.AddWithValue("@FunctiaCb", FunctiaCb.Text);
-                        command.Parameters.AddWithValue("@DepartamentCb", DepartamentCb.Text);
+                        Adaugare.Connection = ConexiuneBaza;
+                        Adaugare.CommandType = CommandType.Text;
+                        Adaugare.CommandText = "INSERT into AngajatiTbl (AngajatID, Nume, Adresa, Telefon, DataAngajare, Functia, Departament) VALUES (@AngajatIdTb, @NumeTb, @AdresaTb, @TelefonTb, @DataAngajareCb, @FunctiaCb, @DepartamentCb)";
+                        Adaugare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
+                        Adaugare.Parameters.AddWithValue("@NumeTb", NumeTb.Text);
+                        Adaugare.Parameters.AddWithValue("@AdresaTb", AdresaTb.Text);
+                        Adaugare.Parameters.AddWithValue("@TelefonTb", TelefonTb.Text);
+                        Adaugare.Parameters.AddWithValue("@DataAngajareCb", DataAngajareCb.Text);
+                        Adaugare.Parameters.AddWithValue("@FunctiaCb", FunctiaCb.Text);
+                        Adaugare.Parameters.AddWithValue("@DepartamentCb", DepartamentCb.Text);
                         try
                         {
-                            Con.Open();
-                            command.ExecuteNonQuery();
-                            Con.Close();
+                            ConexiuneBaza.Open();
+                            Adaugare.ExecuteNonQuery();
+                            ConexiuneBaza.Close();
                             MessageBox.Show("Angajatul a fost introdus");
-                            populate();
-                    }
+                            afisare();
+                            ResetareCampuri();
+                        }
                         catch (Exception er)
                         {
                             MessageBox.Show(er.Message);
@@ -78,23 +78,23 @@ namespace GESTIUNEANGAJATI
 
         private void label8_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void AngajatIdTb_TextChanged(object sender, EventArgs e)
         {
 
         }
-        private void populate()
+        private void afisare()
         {
-            Con.Open();
-            string query = "SELECT * FROM AngajatiTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(query, Con);
+            ConexiuneBaza.Open();
+            string interogare = "SELECT * FROM AngajatiTbl";
+            SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
             AfisDate.DataSource = ds.Tables[0];
-            Con.Close();
+            ConexiuneBaza.Close();
         }
        
 
@@ -106,18 +106,18 @@ namespace GESTIUNEANGAJATI
             }
             else
             {
-                using (SqlCommand command = new SqlCommand())
+                using (SqlCommand stergere = new SqlCommand())
                 {
-                    command.Connection = Con;
-                    command.CommandType = CommandType.Text;
-                    command.CommandText = "DELETE FROM AngajatiTbl WHERE AngajatId='" + AngajatIdTb.Text + "';";
+                    stergere.Connection = ConexiuneBaza;
+                    stergere.CommandType = CommandType.Text;
+                    stergere.CommandText = "DELETE FROM AngajatiTbl WHERE AngajatID='" + AngajatIdTb.Text + "';";
                     try
                     {
-                        Con.Open();
-                        command.ExecuteNonQuery();
-                        Con.Close();
+                        ConexiuneBaza.Open();
+                        stergere.ExecuteNonQuery();
+                        ConexiuneBaza.Close();
                         MessageBox.Show("Angajatul a fost sters");
-                        populate();
+                        afisare();
                     }
                     catch (Exception er)
                     {
@@ -130,7 +130,93 @@ namespace GESTIUNEANGAJATI
 
         private void Angajat_Load(object sender, EventArgs e)
         {
-            populate();
+            afisare();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SqlCommand Modificare = new SqlCommand("UPDATE AngajatiTbl SET Nume=@NumeTb, Adresa=@AdresaTb, Telefon=@TelefonTb, DataAngajare=@DataAngajareCb, Functia=@FunctiaCb, Departament=@DepartamentCb WHERE AngajatID=@AngajatIdTb", ConexiuneBaza);
+            {               
+                Modificare.CommandType = CommandType.Text;                         
+                Modificare.Parameters.AddWithValue("@NumeTb", NumeTb.Text);
+                Modificare.Parameters.AddWithValue("@AdresaTb", AdresaTb.Text);
+                Modificare.Parameters.AddWithValue("@TelefonTb", TelefonTb.Text);
+                Modificare.Parameters.AddWithValue("@DataAngajareCb", DataAngajareCb.Text);
+                Modificare.Parameters.AddWithValue("@FunctiaCb", FunctiaCb.Text);
+                Modificare.Parameters.AddWithValue("@DepartamentCb", DepartamentCb.Text);
+                Modificare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
+
+                try
+                {
+                    ConexiuneBaza.Open();
+                    Modificare.ExecuteNonQuery();
+                    ConexiuneBaza.Close();
+                    MessageBox.Show("Angajatulul a fost actualizat");
+                    afisare();                    
+                    ResetareCampuri();
+
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message);
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ResetareCampuri();
+
+        }
+
+        private void ResetareCampuri()
+        {
+            AngajatIdTb.Clear();
+            NumeTb.Clear();
+            AdresaTb.Clear();
+            TelefonTb.Clear();
+            NumeTb.Focus();
+        }
+
+        private void AfisDate_CellClick(object sender, DataGridViewCellEventArgs e)
+        {        
+        AngajatIdTb.Text = AfisDate.SelectedRows[0].Cells[0].Value.ToString();
+        NumeTb.Text = AfisDate.SelectedRows[0].Cells[1].Value.ToString();
+        AdresaTb.Text = AfisDate.SelectedRows[0].Cells[2].Value.ToString();
+        TelefonTb.Text = AfisDate.SelectedRows[0].Cells[3].Value.ToString();
+        DataAngajareCb.Text = AfisDate.SelectedRows[0].Cells[4].Value.ToString();
+        FunctiaCb.Text = AfisDate.SelectedRows[0].Cells[5].Value.ToString();
+        DepartamentCb.Text = AfisDate.SelectedRows[0].Cells[6].Value.ToString();
+        }
+
+        //private void button5_Click(object sender, EventArgs e)
+        //{
+        //    if (AngajatIdTb.Text == "")
+        //    {
+        //        MessageBox.Show("Introdu Id angajat");
+        //    }
+        //    else
+        //    {
+        //        using (SqlCommand command = new SqlCommand())
+        //        {
+        //            command.Connection = Con;
+        //            command.CommandType = CommandType.Text;
+        //            command.CommandText = "SELECT * FROM AngajatiTbl WHERE AngajatID='" + AngajatIdTb.Text + "';";
+        //            try
+        //            {
+        //                Con.Open();
+        //                command.ExecuteNonQuery();
+        //                Con.Close();
+        //                MessageBox.Show("Angajatul a fost sters");
+        //                afisare();
+        //            }
+        //            catch (Exception er)
+        //            {
+        //                MessageBox.Show(er.Message);
+        //            }
+        //        }
+
+        //    }
+        //}
     }
 }
