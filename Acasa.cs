@@ -56,7 +56,7 @@ namespace GESTIUNEANGAJATI
 
         private void buttonRapoarte_Click(object sender, EventArgs e)
         {
-            DeschideFereastraNoua(new Rapoarte());
+            //DeschideFereastraNoua(new Rapoarte());
         }
 
         private void buttonDeconectare_Click(object sender, EventArgs e)

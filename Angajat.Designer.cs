@@ -309,10 +309,10 @@ namespace GESTIUNEANGAJATI
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 706);
+            this.panel2.Location = new System.Drawing.Point(0, 694);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 50);
-            this.panel2.Size = new System.Drawing.Size(1700, 18);
+            this.panel2.Size = new System.Drawing.Size(1700, 30);
             this.panel2.TabIndex = 6;
             // 
             // Angajat
