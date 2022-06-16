@@ -15,7 +15,7 @@ namespace GESTIUNEANGAJATI
         {
             InitializeComponent();
         }
-        SqlConnection ConexiuneBaza = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ovidiu\Documents\Angajati.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection ConexiuneBaza = new SqlConnection(@"Server=tcp:gestionareangajati.database.windows.net,1433;Initial Catalog=gestionareangajati;Persist Security Info=False;User ID=Ovidiu;Password=Gioada69@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         private void afisare()
         {
             ConexiuneBaza.Open();

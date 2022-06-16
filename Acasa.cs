@@ -17,8 +17,8 @@ namespace GESTIUNEANGAJATI
         {
             InitializeComponent();
         }
-        SqlConnection ConexiuneBaza = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ovidiu\Documents\Angajati.mdf;Integrated Security=True;Connect Timeout=30");
-        
+        SqlConnection ConexiuneBaza = new SqlConnection(@"Server=tcp:gestionareangajati.database.windows.net,1433;Initial Catalog=gestionareangajati;Persist Security Info=False;User ID=Ovidiu;Password=Gioada69@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+
         private void Acasa_Load(object sender, EventArgs e)
         {
             ArataNumarAngajati();
@@ -48,15 +48,15 @@ namespace GESTIUNEANGAJATI
         {
             if (FereastraActiva != null)
                 FereastraActiva.Close();
-            
+
             FereastraActiva = FereastraNoua;
             FereastraNoua.TopLevel = false;
             FereastraNoua.FormBorderStyle = FormBorderStyle.None;
             FereastraNoua.Dock = DockStyle.Fill;
-            
+
             panelForme.Controls.Add(FereastraNoua);
             panelForme.Tag = FereastraNoua;
-            
+
             FereastraNoua.BringToFront();
             FereastraNoua.Show();
         }
