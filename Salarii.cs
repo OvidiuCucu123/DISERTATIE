@@ -34,11 +34,41 @@ namespace GESTIUNEANGAJATI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (SalariulBrut.Text == "" || OreLucrate.Text == "" || Sporuri.Text == "" || Concediu.Text == "")
+            if (SalariulBrutTb.Text == "" || OreLucrateTb.Text == "" || SporuriTb.Text == "" || ConcediuTb.Text == "")
             {
-                MessageBox.Show("Toate campurile sunt obligatorii");
+                MessageBox.Show("Date insuficiente");
             }
-           
+            else
+            {
+                using (SqlCommand Adaugare = new SqlCommand())
+                {
+                    Adaugare.Connection = ConexiuneBaza;
+                    Adaugare.CommandType = CommandType.Text;
+                    Adaugare.CommandText = "INSERT into Table (SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
+                 
+                    Adaugare.Parameters.AddWithValue("@SalariulBrutTb", SalariulBrutTb.Text);
+                    Adaugare.Parameters.AddWithValue("@OreLucrateTb", OreLucrateTb.Text);
+                    Adaugare.Parameters.AddWithValue("@SporuriTb", SporuriTb.Text);
+                    Adaugare.Parameters.AddWithValue("@ConcediuTb", ConcediuTb.Text);
+                    Adaugare.Parameters.AddWithValue("@PrimeTb", PrimeTb.Text);
+                    Adaugare.Parameters.AddWithValue("@AlteBonusuriTb", AlteBonusuriTb.Text);
+                    Adaugare.Parameters.AddWithValue("@AlteRetineriTb", AlteRetineriTb.Text);
+                    try
+                    {
+                        ConexiuneBaza.Open();
+                        Adaugare.ExecuteNonQuery();
+                        ConexiuneBaza.Close();
+                        MessageBox.Show("Angajatul a fost introdus");
+                        //afisare();
+                        //ResetareCampuri();
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show(er.Message);
+                    }
+                }
+
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)

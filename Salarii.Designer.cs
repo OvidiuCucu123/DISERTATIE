@@ -39,19 +39,19 @@ namespace GESTIUNEANGAJATI
             this.button2 = new System.Windows.Forms.Button();
             this.raport = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.SalariulBrut = new System.Windows.Forms.TextBox();
+            this.SalariulBrutTb = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.OreLucrate = new System.Windows.Forms.TextBox();
+            this.OreLucrateTb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Sporuri = new System.Windows.Forms.TextBox();
+            this.SporuriTb = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Concediu = new System.Windows.Forms.TextBox();
+            this.ConcediuTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.Prime = new System.Windows.Forms.TextBox();
+            this.PrimeTb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.AlteBonusuri = new System.Windows.Forms.TextBox();
+            this.AlteBonusuriTb = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.AlteRetineri = new System.Windows.Forms.TextBox();
+            this.AlteRetineriTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AfisNume)).BeginInit();
             this.SuspendLayout();
@@ -153,9 +153,9 @@ namespace GESTIUNEANGAJATI
             // raport
             // 
             this.raport.Dock = System.Windows.Forms.DockStyle.Right;
-            this.raport.Location = new System.Drawing.Point(671, 56);
+            this.raport.Location = new System.Drawing.Point(844, 56);
             this.raport.Name = "raport";
-            this.raport.Size = new System.Drawing.Size(1011, 481);
+            this.raport.Size = new System.Drawing.Size(838, 481);
             this.raport.TabIndex = 20;
             this.raport.Text = "";
             // 
@@ -172,12 +172,12 @@ namespace GESTIUNEANGAJATI
             this.button3.Text = "Print fluturas";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // SalariulBrut
+            // SalariulBrutTb
             // 
-            this.SalariulBrut.Location = new System.Drawing.Point(187, 193);
-            this.SalariulBrut.Name = "SalariulBrut";
-            this.SalariulBrut.Size = new System.Drawing.Size(210, 27);
-            this.SalariulBrut.TabIndex = 23;
+            this.SalariulBrutTb.Location = new System.Drawing.Point(187, 193);
+            this.SalariulBrutTb.Name = "SalariulBrutTb";
+            this.SalariulBrutTb.Size = new System.Drawing.Size(210, 27);
+            this.SalariulBrutTb.TabIndex = 23;
             // 
             // label3
             // 
@@ -190,12 +190,12 @@ namespace GESTIUNEANGAJATI
             this.label3.TabIndex = 22;
             this.label3.Text = "Salariul Brut";
             // 
-            // OreLucrate
+            // OreLucrateTb
             // 
-            this.OreLucrate.Location = new System.Drawing.Point(187, 234);
-            this.OreLucrate.Name = "OreLucrate";
-            this.OreLucrate.Size = new System.Drawing.Size(210, 27);
-            this.OreLucrate.TabIndex = 25;
+            this.OreLucrateTb.Location = new System.Drawing.Point(187, 234);
+            this.OreLucrateTb.Name = "OreLucrateTb";
+            this.OreLucrateTb.Size = new System.Drawing.Size(210, 27);
+            this.OreLucrateTb.TabIndex = 25;
             // 
             // label4
             // 
@@ -209,12 +209,12 @@ namespace GESTIUNEANGAJATI
             this.label4.Text = "Ore Lucrate";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // Sporuri
+            // SporuriTb
             // 
-            this.Sporuri.Location = new System.Drawing.Point(187, 274);
-            this.Sporuri.Name = "Sporuri";
-            this.Sporuri.Size = new System.Drawing.Size(210, 27);
-            this.Sporuri.TabIndex = 27;
+            this.SporuriTb.Location = new System.Drawing.Point(187, 274);
+            this.SporuriTb.Name = "SporuriTb";
+            this.SporuriTb.Size = new System.Drawing.Size(210, 27);
+            this.SporuriTb.TabIndex = 27;
             // 
             // label5
             // 
@@ -227,12 +227,12 @@ namespace GESTIUNEANGAJATI
             this.label5.TabIndex = 26;
             this.label5.Text = "Sporuri";
             // 
-            // Concediu
+            // ConcediuTb
             // 
-            this.Concediu.Location = new System.Drawing.Point(187, 309);
-            this.Concediu.Name = "Concediu";
-            this.Concediu.Size = new System.Drawing.Size(210, 27);
-            this.Concediu.TabIndex = 29;
+            this.ConcediuTb.Location = new System.Drawing.Point(187, 309);
+            this.ConcediuTb.Name = "ConcediuTb";
+            this.ConcediuTb.Size = new System.Drawing.Size(210, 27);
+            this.ConcediuTb.TabIndex = 29;
             // 
             // label6
             // 
@@ -245,12 +245,12 @@ namespace GESTIUNEANGAJATI
             this.label6.TabIndex = 28;
             this.label6.Text = "Concediu";
             // 
-            // Prime
+            // PrimeTb
             // 
-            this.Prime.Location = new System.Drawing.Point(187, 349);
-            this.Prime.Name = "Prime";
-            this.Prime.Size = new System.Drawing.Size(210, 27);
-            this.Prime.TabIndex = 31;
+            this.PrimeTb.Location = new System.Drawing.Point(187, 349);
+            this.PrimeTb.Name = "PrimeTb";
+            this.PrimeTb.Size = new System.Drawing.Size(210, 27);
+            this.PrimeTb.TabIndex = 31;
             // 
             // label7
             // 
@@ -263,12 +263,12 @@ namespace GESTIUNEANGAJATI
             this.label7.TabIndex = 30;
             this.label7.Text = "Prime";
             // 
-            // AlteBonusuri
+            // AlteBonusuriTb
             // 
-            this.AlteBonusuri.Location = new System.Drawing.Point(187, 391);
-            this.AlteBonusuri.Name = "AlteBonusuri";
-            this.AlteBonusuri.Size = new System.Drawing.Size(210, 27);
-            this.AlteBonusuri.TabIndex = 33;
+            this.AlteBonusuriTb.Location = new System.Drawing.Point(187, 391);
+            this.AlteBonusuriTb.Name = "AlteBonusuriTb";
+            this.AlteBonusuriTb.Size = new System.Drawing.Size(210, 27);
+            this.AlteBonusuriTb.TabIndex = 33;
             // 
             // label8
             // 
@@ -281,12 +281,12 @@ namespace GESTIUNEANGAJATI
             this.label8.TabIndex = 32;
             this.label8.Text = "Alte bonusuri";
             // 
-            // AlteRetineri
+            // AlteRetineriTb
             // 
-            this.AlteRetineri.Location = new System.Drawing.Point(187, 433);
-            this.AlteRetineri.Name = "AlteRetineri";
-            this.AlteRetineri.Size = new System.Drawing.Size(210, 27);
-            this.AlteRetineri.TabIndex = 35;
+            this.AlteRetineriTb.Location = new System.Drawing.Point(187, 433);
+            this.AlteRetineriTb.Name = "AlteRetineriTb";
+            this.AlteRetineriTb.Size = new System.Drawing.Size(210, 27);
+            this.AlteRetineriTb.TabIndex = 35;
             // 
             // label9
             // 
@@ -305,19 +305,19 @@ namespace GESTIUNEANGAJATI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1682, 619);
-            this.Controls.Add(this.AlteRetineri);
+            this.Controls.Add(this.AlteRetineriTb);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.AlteBonusuri);
+            this.Controls.Add(this.AlteBonusuriTb);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.Prime);
+            this.Controls.Add(this.PrimeTb);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.Concediu);
+            this.Controls.Add(this.ConcediuTb);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.Sporuri);
+            this.Controls.Add(this.SporuriTb);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.OreLucrate);
+            this.Controls.Add(this.OreLucrateTb);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.SalariulBrut);
+            this.Controls.Add(this.SalariulBrutTb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.raport);
@@ -349,19 +349,19 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox raport;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox SalariulBrut;
+        private System.Windows.Forms.TextBox SalariulBrutTb;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox OreLucrate;
+        private System.Windows.Forms.TextBox OreLucrateTb;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Sporuri;
+        private System.Windows.Forms.TextBox SporuriTb;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Concediu;
+        private System.Windows.Forms.TextBox ConcediuTb;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox Prime;
+        private System.Windows.Forms.TextBox PrimeTb;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox AlteBonusuri;
+        private System.Windows.Forms.TextBox AlteBonusuriTb;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox AlteRetineri;
+        private System.Windows.Forms.TextBox AlteRetineriTb;
         private System.Windows.Forms.Label label9;
     }
 }

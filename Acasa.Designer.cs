@@ -40,9 +40,14 @@ namespace GESTIUNEANGAJATI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelJos = new System.Windows.Forms.Panel();
             this.panelForme = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.NumarAngajati = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelMeniu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelForme.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMeniu
@@ -192,11 +197,45 @@ namespace GESTIUNEANGAJATI
             // panelForme
             // 
             this.panelForme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
+            this.panelForme.Controls.Add(this.panel1);
             this.panelForme.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForme.Location = new System.Drawing.Point(250, 0);
             this.panelForme.Name = "panelForme";
             this.panelForme.Size = new System.Drawing.Size(756, 524);
             this.panelForme.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
+            this.panel1.Controls.Add(this.NumarAngajati);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(756, 153);
+            this.panel1.TabIndex = 0;
+            // 
+            // NumarAngajati
+            // 
+            this.NumarAngajati.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
+            this.NumarAngajati.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NumarAngajati.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NumarAngajati.ForeColor = System.Drawing.Color.White;
+            this.NumarAngajati.Location = new System.Drawing.Point(29, 97);
+            this.NumarAngajati.Name = "NumarAngajati";
+            this.NumarAngajati.Size = new System.Drawing.Size(491, 45);
+            this.NumarAngajati.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(29, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 46);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Buna ziua,";
             // 
             // Acasa
             // 
@@ -216,6 +255,9 @@ namespace GESTIUNEANGAJATI
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelForme.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -233,6 +275,9 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Panel panelForme;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox NumarAngajati;
+        private System.Windows.Forms.Label label3;
     }
 }
 

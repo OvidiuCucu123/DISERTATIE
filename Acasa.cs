@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GESTIUNEANGAJATI
 {
@@ -16,11 +17,32 @@ namespace GESTIUNEANGAJATI
         {
             InitializeComponent();
         }
-
+        SqlConnection ConexiuneBaza = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ovidiu\Documents\Angajati.mdf;Integrated Security=True;Connect Timeout=30");
+        
         private void Acasa_Load(object sender, EventArgs e)
         {
+            ArataNumarAngajati();
 
         }
+        private void ArataNumarAngajati()
+        {
+            SqlCommand numara;
+            string interogare = "SELECT COUNT(AngajatID) FROM AngajatiTbl";
+            try
+            {
+                ConexiuneBaza.Open();
+                numara = new SqlCommand(interogare, ConexiuneBaza);
+                Int32 numar_angajati = Convert.ToInt32(numara.ExecuteScalar());
+                numara.Dispose();
+                ConexiuneBaza.Close();
+                NumarAngajati.Text = "In prezent aveti: " + numar_angajati.ToString() + " angajati";
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
         private Form FereastraActiva = null;
         private void DeschideFereastraNoua(Form FereastraNoua)
         {
