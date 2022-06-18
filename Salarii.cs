@@ -19,7 +19,7 @@ namespace GESTIUNEANGAJATI
         private void afisare()
         {
             ConexiuneBaza.Open();
-            string interogare = "SELECT AngajatID FROM AngajatiTbl WHERE Nume='" + CautaNume.Text + "';";
+            string interogare = "SELECT AngajatID FROM AngajatiTbl WHERE Nume='" + AngajatIdTb.Text + "';";
             SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
             //var ds = new DataSet();
@@ -28,6 +28,32 @@ namespace GESTIUNEANGAJATI
             
             ConexiuneBaza.Close();
         }
+        
+        private void CalculSalariu()
+        {
+            int salariulbrut = 0, salariulnet=0, orelucrate=0, sporuri=0, zileconcediu=0, concediu=0, prime=0, altebonusuri=0, alteretineri=0, restdeplata=0;
+            salariulbrut = Convert.ToInt32(SalariulBrutTb.Text);
+            orelucrate = Convert.ToInt32(OreLucrateTb.Text);
+            sporuri = Convert.ToInt32(SporuriTb.Text);
+            zileconcediu = Convert.ToInt32(ConcediuTb.Text);
+            prime = Convert.ToInt32(PrimeTb.Text);
+            altebonusuri = Convert.ToInt32(AlteBonusuriTb.Text);
+            alteretineri = Convert.ToInt32(AlteRetineriTb.Text);
+            
+            if (zileconcediu == 0)
+                concediu = 0;
+            else concediu = zileconcediu * 150;
+            
+            if (orelucrate == 0)
+                salariulbrut = 0;
+            else if (orelucrate == 100) 
+                salariulbrut = salariulbrut + concediu + sporuri + prime + altebonusuri - alteretineri;
+            else
+                salariulbrut = (orelucrate/100*salariulbrut) + concediu + sporuri + prime + altebonusuri - alteretineri;
+
+            salariulnet = salariulbrut - (25 / 100 * salariulbrut);
+            raport.Text = "salariu" + salariulbrut.ToString();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             afisare();
@@ -35,7 +61,7 @@ namespace GESTIUNEANGAJATI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (SalariulBrutTb.Text == "" || OreLucrateTb.Text == "" || SporuriTb.Text == "" || ConcediuTb.Text == "")
+            if (AngajatIdTb.Text == "" || SalariulBrutTb.Text == "" || OreLucrateTb.Text == "" || SporuriTb.Text == "" || ConcediuTb.Text == "")
             {
                 MessageBox.Show("Date insuficiente");
             }
@@ -45,9 +71,9 @@ namespace GESTIUNEANGAJATI
                 {
                     Adaugare.Connection = ConexiuneBaza;
                     Adaugare.CommandType = CommandType.Text;
-                    Adaugare.CommandText = "INSERT into SalariiTbl (SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
-                    
-                    //Adaugare.Parameters.AddWithValue("@AfisareID", AfisareID.DataGridView);
+                    Adaugare.CommandText = "INSERT into SalariiTbl (AngajatID, SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@AngajatIdTb, @SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
+
+                    Adaugare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
                     Adaugare.Parameters.AddWithValue("@SalariulBrutTb", SalariulBrutTb.Text);
                     Adaugare.Parameters.AddWithValue("@OreLucrateTb", OreLucrateTb.Text);
                     Adaugare.Parameters.AddWithValue("@SporuriTb", SporuriTb.Text);
@@ -63,6 +89,8 @@ namespace GESTIUNEANGAJATI
                         MessageBox.Show("Angajatul a fost introdus");
                         //afisare();
                         //ResetareCampuri();
+                        CalculSalariu();
+                        //AfisareCalculSalariu();
                     }
                     catch (Exception er)
                     {
