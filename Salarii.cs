@@ -31,28 +31,52 @@ namespace GESTIUNEANGAJATI
         
         private void CalculSalariu()
         {
-            int salariulbrut = 0, salariulnet=0, orelucrate=0, sporuri=0, zileconcediu=0, concediu=0, prime=0, altebonusuri=0, alteretineri=0, restdeplata=0;
-            salariulbrut = Convert.ToInt32(SalariulBrutTb.Text);
-            orelucrate = Convert.ToInt32(OreLucrateTb.Text);
-            sporuri = Convert.ToInt32(SporuriTb.Text);
-            zileconcediu = Convert.ToInt32(ConcediuTb.Text);
-            prime = Convert.ToInt32(PrimeTb.Text);
-            altebonusuri = Convert.ToInt32(AlteBonusuriTb.Text);
-            alteretineri = Convert.ToInt32(AlteRetineriTb.Text);
-            
+            double salariulbrut, salariulnet=0, orelucrate, sporuri, zileconcediu, concediu=0, prime, altebonusuri, alteretineri, restdeplata=0, persoaneintretinere, deducere=0, impozitsalariu=0, contributii=0;
+            salariulbrut = Convert.ToDouble(SalariulBrutTb.Text);
+            orelucrate = Convert.ToDouble(OreLucrateTb.Text);
+            sporuri = Convert.ToDouble(SporuriTb.Text);
+            zileconcediu = Convert.ToDouble(ConcediuTb.Text);
+            prime = Convert.ToDouble(PrimeTb.Text);
+            altebonusuri = Convert.ToDouble(AlteBonusuriTb.Text);
+            alteretineri = Convert.ToDouble(AlteRetineriTb.Text);
+            persoaneintretinere = Convert.ToDouble(PersoaneIntretinereCb.Text);
+
+            switch (persoaneintretinere)
+            {
+                case 1:
+                    deducere = 350 * (1 - ((salariulbrut - 1000) / 2000))*6;
+                    break;
+                case 2:
+                    deducere = 450 * (1 - ((salariulbrut - 1000) / 2000))*6;
+                    break;
+                case 3:
+                    deducere = 550 * (1 - ((salariulbrut - 1000) / 2000))*6;
+                    break;
+                case 4:
+                    deducere = 650 * (1 - ((salariulbrut - 1000) / 2000))*6;
+                    break;
+                default:
+                    deducere = 250 * (1 - ((salariulbrut - 1000) / 2000))*6;
+                    break;
+            }
+
             if (zileconcediu == 0)
                 concediu = 0;
             else concediu = zileconcediu * 150;
-            
+
             if (orelucrate == 0)
                 salariulbrut = 0;
-            else if (orelucrate == 100) 
+            else if (orelucrate == 100)
                 salariulbrut = salariulbrut + concediu + sporuri + prime + altebonusuri - alteretineri;
             else
-                salariulbrut = (orelucrate/100*salariulbrut) + concediu + sporuri + prime + altebonusuri - alteretineri;
-
-            salariulnet = salariulbrut - (25 / 100 * salariulbrut);
-            raport.Text = "salariu" + salariulbrut.ToString();
+                salariulbrut = (orelucrate / 100 * salariulbrut) + concediu + sporuri + prime + altebonusuri - alteretineri;
+            contributii = (0.1 * salariulbrut);         
+            impozitsalariu = 0.1 * (salariulbrut - contributii - deducere);
+            salariulnet = salariulbrut - (0.25 * salariulbrut) - (0.1 * salariulbrut) - impozitsalariu;
+            
+            raport.Text = "Venit brut: " + salariulbrut.ToString() + "\n Salariu net: " + salariulnet.ToString() +
+                "\n deducere: " + deducere.ToString() + "\n impozitsalariu: " + impozitsalariu.ToString() +
+                "\n contributii: " + contributii.ToString(); 
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -61,49 +85,64 @@ namespace GESTIUNEANGAJATI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (AngajatIdTb.Text == "" || SalariulBrutTb.Text == "" || OreLucrateTb.Text == "" || SporuriTb.Text == "" || ConcediuTb.Text == "")
-            {
-                MessageBox.Show("Date insuficiente");
-            }
-            else
-            {
-                using (SqlCommand Adaugare = new SqlCommand())
-                {
-                    Adaugare.Connection = ConexiuneBaza;
-                    Adaugare.CommandType = CommandType.Text;
-                    Adaugare.CommandText = "INSERT into SalariiTbl (AngajatID, SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@AngajatIdTb, @SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
+            //if (AngajatIdTb.Text == "" || SalariulBrutTb.Text == "" || OreLucrateTb.Text == "" || SporuriTb.Text == "" || ConcediuTb.Text == "")
+            //{
+            //    MessageBox.Show("Date insuficiente");
+            //}
+            //else
+            //{
+            //    using (SqlCommand Adaugare = new SqlCommand())
+            //    {
+            //        Adaugare.Connection = ConexiuneBaza;
+            //        Adaugare.CommandType = CommandType.Text;
+            //        Adaugare.CommandText = "INSERT into SalariiTbl (AngajatID, SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@AngajatIdTb, @SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
 
-                    Adaugare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
-                    Adaugare.Parameters.AddWithValue("@SalariulBrutTb", SalariulBrutTb.Text);
-                    Adaugare.Parameters.AddWithValue("@OreLucrateTb", OreLucrateTb.Text);
-                    Adaugare.Parameters.AddWithValue("@SporuriTb", SporuriTb.Text);
-                    Adaugare.Parameters.AddWithValue("@ConcediuTb", ConcediuTb.Text);
-                    Adaugare.Parameters.AddWithValue("@PrimeTb", PrimeTb.Text);
-                    Adaugare.Parameters.AddWithValue("@AlteBonusuriTb", AlteBonusuriTb.Text);
-                    Adaugare.Parameters.AddWithValue("@AlteRetineriTb", AlteRetineriTb.Text);
-                    try
-                    {
-                        ConexiuneBaza.Open();
-                        Adaugare.ExecuteNonQuery();
-                        ConexiuneBaza.Close();
-                        MessageBox.Show("Angajatul a fost introdus");
-                        //afisare();
-                        //ResetareCampuri();
-                        CalculSalariu();
-                        //AfisareCalculSalariu();
-                    }
-                    catch (Exception er)
-                    {
-                        MessageBox.Show(er.Message);
-                    }
-                }
+            //        Adaugare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
+            //        Adaugare.Parameters.AddWithValue("@SalariulBrutTb", SalariulBrutTb.Text);
+            //        Adaugare.Parameters.AddWithValue("@OreLucrateTb", OreLucrateTb.Text);
+            //        Adaugare.Parameters.AddWithValue("@SporuriTb", SporuriTb.Text);
+            //        Adaugare.Parameters.AddWithValue("@ConcediuTb", ConcediuTb.Text);
+            //        Adaugare.Parameters.AddWithValue("@PrimeTb", PrimeTb.Text);
+            //        Adaugare.Parameters.AddWithValue("@AlteBonusuriTb", AlteBonusuriTb.Text);
+            //        Adaugare.Parameters.AddWithValue("@AlteRetineriTb", AlteRetineriTb.Text);
+            //        try
+            //        {
+            //            ConexiuneBaza.Open();
+            //            Adaugare.ExecuteNonQuery();
+            //            ConexiuneBaza.Close();
+            //            MessageBox.Show("Angajatul a fost introdus");
+            //            //afisare();
+            //            //ResetareCampuri();
+            //            CalculSalariu();
+            //            //AfisareCalculSalariu();
+            //        }
+            //        catch (Exception er)
+            //        {
+            //            MessageBox.Show(er.Message);
+            //        }
+            //    }
 
-            }
+            //}
+            CalculSalariu();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             //
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            printDialog.Document = printFluturas;
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printFluturas.Print();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(raport.Text, new Font("Arial", 30, FontStyle.Bold), Brushes.Black, 30, 30);
         }
     }
 }

@@ -50,8 +50,10 @@ namespace GESTIUNEANGAJATI
             this.label8 = new System.Windows.Forms.Label();
             this.AlteRetineriTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.PersoaneIntretinereCb = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.printFluturas = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // panel1
@@ -125,6 +127,7 @@ namespace GESTIUNEANGAJATI
             this.button3.TabIndex = 21;
             this.button3.Text = "Print fluturas";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SalariulBrutTb
             // 
@@ -253,18 +256,19 @@ namespace GESTIUNEANGAJATI
             this.label9.TabIndex = 34;
             this.label9.Text = "Alte retineri";
             // 
-            // comboBox1
+            // PersoaneIntretinereCb
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.PersoaneIntretinereCb.FormattingEnabled = true;
+            this.PersoaneIntretinereCb.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
             "4"});
-            this.comboBox1.Location = new System.Drawing.Point(272, 426);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(210, 28);
-            this.comboBox1.TabIndex = 36;
+            this.PersoaneIntretinereCb.Location = new System.Drawing.Point(272, 426);
+            this.PersoaneIntretinereCb.Name = "PersoaneIntretinereCb";
+            this.PersoaneIntretinereCb.Size = new System.Drawing.Size(210, 28);
+            this.PersoaneIntretinereCb.TabIndex = 36;
             // 
             // label2
             // 
@@ -277,6 +281,14 @@ namespace GESTIUNEANGAJATI
             this.label2.TabIndex = 37;
             this.label2.Text = "Persoane in intretinere";
             // 
+            // printDialog
+            // 
+            this.printDialog.UseEXDialog = true;
+            // 
+            // printFluturas
+            // 
+            this.printFluturas.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // Salarii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -284,7 +296,7 @@ namespace GESTIUNEANGAJATI
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1682, 619);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.PersoaneIntretinereCb);
             this.Controls.Add(this.AlteRetineriTb);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.AlteBonusuriTb);
@@ -336,7 +348,9 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox AlteRetineriTb;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox PersoaneIntretinereCb;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PrintDialog printDialog;
+        private System.Drawing.Printing.PrintDocument printFluturas;
     }
 }
