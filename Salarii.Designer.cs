@@ -33,7 +33,7 @@ namespace GESTIUNEANGAJATI
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.AfisNume = new System.Windows.Forms.DataGridView();
+            this.AfisareID = new System.Windows.Forms.DataGridView();
             this.CautaNume = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -53,7 +53,8 @@ namespace GESTIUNEANGAJATI
             this.label8 = new System.Windows.Forms.Label();
             this.AlteRetineriTb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.AfisNume)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.AfisareID)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,24 +97,24 @@ namespace GESTIUNEANGAJATI
             this.label2.TabIndex = 4;
             this.label2.Text = "Introdu Nume";
             // 
-            // AfisNume
+            // AfisareID
             // 
-            this.AfisNume.AllowUserToDeleteRows = false;
-            this.AfisNume.BackgroundColor = System.Drawing.Color.White;
-            this.AfisNume.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AfisNume.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.AfisNume.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AfisNume.ColumnHeadersVisible = false;
-            this.AfisNume.GridColor = System.Drawing.Color.White;
-            this.AfisNume.Location = new System.Drawing.Point(210, 118);
-            this.AfisNume.Name = "AfisNume";
-            this.AfisNume.ReadOnly = true;
-            this.AfisNume.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.AfisNume.RowHeadersVisible = false;
-            this.AfisNume.RowHeadersWidth = 51;
-            this.AfisNume.RowTemplate.Height = 29;
-            this.AfisNume.Size = new System.Drawing.Size(187, 45);
-            this.AfisNume.TabIndex = 5;
+            this.AfisareID.AllowUserToDeleteRows = false;
+            this.AfisareID.BackgroundColor = System.Drawing.Color.White;
+            this.AfisareID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AfisareID.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.AfisareID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AfisareID.ColumnHeadersVisible = false;
+            this.AfisareID.GridColor = System.Drawing.Color.White;
+            this.AfisareID.Location = new System.Drawing.Point(210, 118);
+            this.AfisareID.Name = "AfisareID";
+            this.AfisareID.ReadOnly = true;
+            this.AfisareID.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.AfisareID.RowHeadersVisible = false;
+            this.AfisareID.RowHeadersWidth = 51;
+            this.AfisareID.RowTemplate.Height = 29;
+            this.AfisareID.Size = new System.Drawing.Size(187, 45);
+            this.AfisareID.TabIndex = 5;
             // 
             // CautaNume
             // 
@@ -299,12 +300,20 @@ namespace GESTIUNEANGAJATI
             this.label9.TabIndex = 34;
             this.label9.Text = "Alte retineri";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(514, 153);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(135, 27);
+            this.textBox1.TabIndex = 36;
+            // 
             // Salarii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1682, 619);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.AlteRetineriTb);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.AlteBonusuriTb);
@@ -324,14 +333,14 @@ namespace GESTIUNEANGAJATI
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.CautaNume);
-            this.Controls.Add(this.AfisNume);
+            this.Controls.Add(this.AfisareID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Salarii";
             this.Text = "Salarii";
-            ((System.ComponentModel.ISupportInitialize)(this.AfisNume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AfisareID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,7 +352,7 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView AfisNume;
+        private System.Windows.Forms.DataGridView AfisareID;
         private System.Windows.Forms.TextBox CautaNume;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -363,5 +372,6 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox AlteRetineriTb;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -22,9 +22,10 @@ namespace GESTIUNEANGAJATI
             string interogare = "SELECT AngajatID FROM AngajatiTbl WHERE Nume='" + CautaNume.Text + "';";
             SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            AfisNume.DataSource = ds.Tables[0];
+            //var ds = new DataSet();
+            //sda.Fill(ds);
+            //AfisareID.DataSource = ds.Tables[0];
+            
             ConexiuneBaza.Close();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -44,8 +45,9 @@ namespace GESTIUNEANGAJATI
                 {
                     Adaugare.Connection = ConexiuneBaza;
                     Adaugare.CommandType = CommandType.Text;
-                    Adaugare.CommandText = "INSERT into Table (SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
-                 
+                    Adaugare.CommandText = "INSERT into SalariiTbl (SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
+                    
+                    //Adaugare.Parameters.AddWithValue("@AfisareID", AfisareID.DataGridView);
                     Adaugare.Parameters.AddWithValue("@SalariulBrutTb", SalariulBrutTb.Text);
                     Adaugare.Parameters.AddWithValue("@OreLucrateTb", OreLucrateTb.Text);
                     Adaugare.Parameters.AddWithValue("@SporuriTb", SporuriTb.Text);

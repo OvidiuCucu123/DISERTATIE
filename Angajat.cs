@@ -189,34 +189,16 @@ namespace GESTIUNEANGAJATI
             DepartamentCb.Text = AfisDate.SelectedRows[0].Cells[6].Value.ToString();
         }
 
-        //private void button5_Click(object sender, EventArgs e)
-        //{
-        //    if (AngajatIdTb.Text == "")
-        //    {
-        //        MessageBox.Show("Introdu Id angajat");
-        //    }
-        //    else
-        //    {
-        //        using (SqlCommand command = new SqlCommand())
-        //        {
-        //            command.Connection = Con;
-        //            command.CommandType = CommandType.Text;
-        //            command.CommandText = "SELECT * FROM AngajatiTbl WHERE AngajatID='" + AngajatIdTb.Text + "';";
-        //            try
-        //            {
-        //                Con.Open();
-        //                command.ExecuteNonQuery();
-        //                Con.Close();
-        //                MessageBox.Show("Angajatul a fost sters");
-        //                afisare();
-        //            }
-        //            catch (Exception er)
-        //            {
-        //                MessageBox.Show(er.Message);
-        //            }
-        //        }
-
-        //    }
-        //}
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ConexiuneBaza.Open();
+            string interogare = "SELECT * FROM AngajatiTbl WHERE Nume like'"+NumeTb.Text+"%'";
+            SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            AfisDate.DataSource = ds.Tables[0];
+            ConexiuneBaza.Close();
+        }
     }
 }
