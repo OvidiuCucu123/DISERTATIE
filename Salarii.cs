@@ -69,13 +69,13 @@ namespace GESTIUNEANGAJATI
             else if (orelucrate == 100)
                 salariulbrut = salariulbrut + concediu + sporuri + prime + altebonusuri - alteretineri;
             else
-                salariulbrut = (orelucrate / 100 * salariulbrut) + concediu + sporuri + prime + altebonusuri - alteretineri;
-            contributii = (0.1 * salariulbrut);         
-            impozitsalariu = 0.1 * (salariulbrut - contributii - deducere);
-            salariulnet = salariulbrut - (0.25 * salariulbrut) - (0.1 * salariulbrut) - impozitsalariu;
+                salariulbrut = (orelucrate *0.01 * salariulbrut) + concediu + sporuri + prime + altebonusuri - alteretineri;
+                contributii = (0.1 * salariulbrut);         
+                impozitsalariu = 0.1 * (salariulbrut - contributii - deducere);
+                salariulnet = salariulbrut - (0.25 * salariulbrut) - (0.1 * salariulbrut) - impozitsalariu;
             
             raport.Text = "Venit brut: " + salariulbrut.ToString() + "\n Salariu net: " + salariulnet.ToString() +
-                "\n deducere: " + deducere.ToString() + "\n impozitsalariu: " + impozitsalariu.ToString() +
+                "\n deducere: " + deducere.ToString() + "\n impozitsalariu: " + impozitsalariu.ToString("N") +
                 "\n contributii: " + contributii.ToString(); 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -85,45 +85,52 @@ namespace GESTIUNEANGAJATI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //if (AngajatIdTb.Text == "" || SalariulBrutTb.Text == "" || OreLucrateTb.Text == "" || SporuriTb.Text == "" || ConcediuTb.Text == "")
-            //{
-            //    MessageBox.Show("Date insuficiente");
-            //}
-            //else
-            //{
-            //    using (SqlCommand Adaugare = new SqlCommand())
-            //    {
-            //        Adaugare.Connection = ConexiuneBaza;
-            //        Adaugare.CommandType = CommandType.Text;
-            //        Adaugare.CommandText = "INSERT into SalariiTbl (AngajatID, SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@AngajatIdTb, @SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
-
-            //        Adaugare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
-            //        Adaugare.Parameters.AddWithValue("@SalariulBrutTb", SalariulBrutTb.Text);
-            //        Adaugare.Parameters.AddWithValue("@OreLucrateTb", OreLucrateTb.Text);
-            //        Adaugare.Parameters.AddWithValue("@SporuriTb", SporuriTb.Text);
-            //        Adaugare.Parameters.AddWithValue("@ConcediuTb", ConcediuTb.Text);
-            //        Adaugare.Parameters.AddWithValue("@PrimeTb", PrimeTb.Text);
-            //        Adaugare.Parameters.AddWithValue("@AlteBonusuriTb", AlteBonusuriTb.Text);
-            //        Adaugare.Parameters.AddWithValue("@AlteRetineriTb", AlteRetineriTb.Text);
-            //        try
-            //        {
-            //            ConexiuneBaza.Open();
-            //            Adaugare.ExecuteNonQuery();
-            //            ConexiuneBaza.Close();
-            //            MessageBox.Show("Angajatul a fost introdus");
-            //            //afisare();
-            //            //ResetareCampuri();
-            //            CalculSalariu();
-            //            //AfisareCalculSalariu();
-            //        }
-            //        catch (Exception er)
-            //        {
-            //            MessageBox.Show(er.Message);
-            //        }
-            //    }
-
-            //}
             CalculSalariu();
+            if (MessageBox.Show("Vrei sa adaugi date in tabela Salarii?","Adauga", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (AngajatIdTb.Text == "" || SalariulBrutTb.Text == "" || OreLucrateTb.Text == "" || SporuriTb.Text == "" || ConcediuTb.Text == "")
+                {
+                    MessageBox.Show("Date insuficiente");
+                }
+                else
+                {
+                    using (SqlCommand Adaugare = new SqlCommand())
+                    {
+                        Adaugare.Connection = ConexiuneBaza;
+                        Adaugare.CommandType = CommandType.Text;
+                        Adaugare.CommandText = "INSERT into SalariiTbl (AngajatID, SalariulBrut, OreLucrate, Sporuri, Concediu, Prime, AlteBonusuri, AlteRetineri) VALUES (@AngajatIdTb, @SalariulBrutTb, @OreLucrateTb, @SporuriTb, @ConcediuTb, @PrimeTb, @AlteBonusuriTb, @AlteRetineriTb)";
+
+                        Adaugare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
+                        Adaugare.Parameters.AddWithValue("@SalariulBrutTb", SalariulBrutTb.Text);
+                        Adaugare.Parameters.AddWithValue("@OreLucrateTb", OreLucrateTb.Text);
+                        Adaugare.Parameters.AddWithValue("@SporuriTb", SporuriTb.Text);
+                        Adaugare.Parameters.AddWithValue("@ConcediuTb", ConcediuTb.Text);
+                        Adaugare.Parameters.AddWithValue("@PrimeTb", PrimeTb.Text);
+                        Adaugare.Parameters.AddWithValue("@AlteBonusuriTb", AlteBonusuriTb.Text);
+                        Adaugare.Parameters.AddWithValue("@AlteRetineriTb", AlteRetineriTb.Text);
+                        try
+                        {
+                            ConexiuneBaza.Open();
+                            Adaugare.ExecuteNonQuery();
+                            ConexiuneBaza.Close();
+                            MessageBox.Show("Angajatul a fost introdus");
+                            //afisare();
+                            //ResetareCampuri();
+                            
+                            //AfisareCalculSalariu();
+                        }
+                        catch (Exception er)
+                        {
+                            MessageBox.Show(er.Message);
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Datele nu au fost introduse","Adauga", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -142,7 +149,21 @@ namespace GESTIUNEANGAJATI
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString(raport.Text, new Font("Arial", 30, FontStyle.Bold), Brushes.Black, 30, 30);
+            e.Graphics.DrawString(raport.Text + raport.Text, new Font("Arial", 30, FontStyle.Bold), Brushes.Black, 30, 30);
         }
+
+        //private void button1_Click_1(object sender, EventArgs e)
+        //{
+        //    ConexiuneBaza.Open();
+            
+            
+        //        SqlCommand PreiaDate = new SqlCommand("SELECT Nume FROM AngajatiTbl WHERE AngajatID = @AngajatIdTb", ConexiuneBaza);
+        //        PreiaDate.Parameters.AddWithValue("AngajatIdTb", int.Parse(AngajatIdTb.Text));
+        //        SqlDataReader citeste = PreiaDate.ExecuteReader();                               
+        //        DateAngajati.Text = citeste.GetValue(1).ToString();
+                
+            
+        //    ConexiuneBaza.Close();
+        //}
     }
 }

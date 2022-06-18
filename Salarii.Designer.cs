@@ -54,6 +54,8 @@ namespace GESTIUNEANGAJATI
             this.label2 = new System.Windows.Forms.Label();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printFluturas = new System.Drawing.Printing.PrintDocument();
+            this.DateAngajati = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,16 +64,16 @@ namespace GESTIUNEANGAJATI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1682, 56);
+            this.panel1.Size = new System.Drawing.Size(1006, 56);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 537);
+            this.panel2.Location = new System.Drawing.Point(0, 639);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1682, 82);
+            this.panel2.Size = new System.Drawing.Size(1006, 82);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -108,10 +110,11 @@ namespace GESTIUNEANGAJATI
             // 
             // raport
             // 
+            this.raport.BackColor = System.Drawing.Color.Cornsilk;
             this.raport.Dock = System.Windows.Forms.DockStyle.Right;
-            this.raport.Location = new System.Drawing.Point(844, 56);
+            this.raport.Location = new System.Drawing.Point(634, 56);
             this.raport.Name = "raport";
-            this.raport.Size = new System.Drawing.Size(838, 481);
+            this.raport.Size = new System.Drawing.Size(372, 583);
             this.raport.TabIndex = 20;
             this.raport.Text = "";
             // 
@@ -143,9 +146,9 @@ namespace GESTIUNEANGAJATI
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(23, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 31);
+            this.label3.Size = new System.Drawing.Size(186, 31);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Salariul Brut";
+            this.label3.Text = "Salariul Brut [Lei]";
             // 
             // OreLucrateTb
             // 
@@ -159,11 +162,11 @@ namespace GESTIUNEANGAJATI
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(28, 157);
+            this.label4.Location = new System.Drawing.Point(15, 161);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 31);
+            this.label4.Size = new System.Drawing.Size(208, 31);
             this.label4.TabIndex = 24;
-            this.label4.Text = "Ore Lucrate";
+            this.label4.Text = "Ore Lucrate [%Ore]";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // SporuriTb
@@ -180,9 +183,9 @@ namespace GESTIUNEANGAJATI
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(28, 202);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 31);
+            this.label5.Size = new System.Drawing.Size(137, 31);
             this.label5.TabIndex = 26;
-            this.label5.Text = "Sporuri";
+            this.label5.Text = "Sporuri [Lei]";
             // 
             // ConcediuTb
             // 
@@ -198,9 +201,9 @@ namespace GESTIUNEANGAJATI
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(23, 244);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 31);
+            this.label6.Size = new System.Drawing.Size(167, 31);
             this.label6.TabIndex = 28;
-            this.label6.Text = "Concediu";
+            this.label6.Text = "Concediu [Zile]";
             // 
             // PrimeTb
             // 
@@ -214,11 +217,11 @@ namespace GESTIUNEANGAJATI
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(47, 294);
+            this.label7.Location = new System.Drawing.Point(34, 292);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 31);
+            this.label7.Size = new System.Drawing.Size(122, 31);
             this.label7.TabIndex = 30;
-            this.label7.Text = "Prime";
+            this.label7.Text = "Prime [Lei]";
             // 
             // AlteBonusuriTb
             // 
@@ -234,9 +237,9 @@ namespace GESTIUNEANGAJATI
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(23, 339);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(151, 31);
+            this.label8.Size = new System.Drawing.Size(200, 31);
             this.label8.TabIndex = 32;
-            this.label8.Text = "Alte bonusuri";
+            this.label8.Text = "Alte bonusuri [Lei]";
             // 
             // AlteRetineriTb
             // 
@@ -252,9 +255,9 @@ namespace GESTIUNEANGAJATI
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(28, 382);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(134, 31);
+            this.label9.Size = new System.Drawing.Size(183, 31);
             this.label9.TabIndex = 34;
-            this.label9.Text = "Alte retineri";
+            this.label9.Text = "Alte retineri [Lei]";
             // 
             // PersoaneIntretinereCb
             // 
@@ -289,12 +292,36 @@ namespace GESTIUNEANGAJATI
             // 
             this.printFluturas.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // DateAngajati
+            // 
+            this.DateAngajati.Location = new System.Drawing.Point(634, 53);
+            this.DateAngajati.Name = "DateAngajati";
+            this.DateAngajati.Size = new System.Drawing.Size(372, 270);
+            this.DateAngajati.TabIndex = 38;
+            this.DateAngajati.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(488, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 42);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Preia date";
+            this.button1.UseVisualStyleBackColor = false;
+            //this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Salarii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
-            this.ClientSize = new System.Drawing.Size(1682, 619);
+            this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.DateAngajati);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PersoaneIntretinereCb);
             this.Controls.Add(this.AlteRetineriTb);
@@ -352,5 +379,7 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PrintDialog printDialog;
         private System.Drawing.Printing.PrintDocument printFluturas;
+        private System.Windows.Forms.RichTextBox DateAngajati;
+        private System.Windows.Forms.Button button1;
     }
 }
