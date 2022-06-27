@@ -31,7 +31,6 @@ namespace GESTIUNEANGAJATI
         {
             this.panelMeniu = new System.Windows.Forms.Panel();
             this.buttonDeconectare = new System.Windows.Forms.Button();
-            this.buttonRapoarte = new System.Windows.Forms.Button();
             this.buttonSalarii = new System.Windows.Forms.Button();
             this.buttonAngajati = new System.Windows.Forms.Button();
             this.buttonAcasa = new System.Windows.Forms.Button();
@@ -55,7 +54,6 @@ namespace GESTIUNEANGAJATI
             this.panelMeniu.AutoScroll = true;
             this.panelMeniu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(16)))), ((int)(((byte)(6)))));
             this.panelMeniu.Controls.Add(this.buttonDeconectare);
-            this.panelMeniu.Controls.Add(this.buttonRapoarte);
             this.panelMeniu.Controls.Add(this.buttonSalarii);
             this.panelMeniu.Controls.Add(this.buttonAngajati);
             this.panelMeniu.Controls.Add(this.buttonAcasa);
@@ -82,23 +80,6 @@ namespace GESTIUNEANGAJATI
             this.buttonDeconectare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDeconectare.UseVisualStyleBackColor = true;
             this.buttonDeconectare.Click += new System.EventHandler(this.buttonDeconectare_Click);
-            // 
-            // buttonRapoarte
-            // 
-            this.buttonRapoarte.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonRapoarte.FlatAppearance.BorderSize = 0;
-            this.buttonRapoarte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
-            this.buttonRapoarte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRapoarte.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonRapoarte.Location = new System.Drawing.Point(0, 360);
-            this.buttonRapoarte.Name = "buttonRapoarte";
-            this.buttonRapoarte.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
-            this.buttonRapoarte.Size = new System.Drawing.Size(250, 70);
-            this.buttonRapoarte.TabIndex = 4;
-            this.buttonRapoarte.Text = "Rapoarte";
-            this.buttonRapoarte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRapoarte.UseVisualStyleBackColor = true;
-            this.buttonRapoarte.Click += new System.EventHandler(this.buttonRapoarte_Click);
             // 
             // buttonSalarii
             // 
@@ -266,7 +247,6 @@ namespace GESTIUNEANGAJATI
 
         private System.Windows.Forms.Panel panelMeniu;
         private System.Windows.Forms.Button buttonDeconectare;
-        private System.Windows.Forms.Button buttonRapoarte;
         private System.Windows.Forms.Button buttonSalarii;
         private System.Windows.Forms.Button buttonAngajati;
         private System.Windows.Forms.Button buttonAcasa;

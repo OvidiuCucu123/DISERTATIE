@@ -18,7 +18,7 @@ namespace GESTIUNEANGAJATI
         SqlConnection ConexiuneBaza = new SqlConnection(@"Server=tcp:gestionareangajati.database.windows.net,1433;Initial Catalog=gestionareangajati;Persist Security Info=False;User ID=Ovidiu;Password=Gioada69@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         private void afisare()
         {
-            ConexiuneBaza.Open();
+            ConexiuneBaza.Open(); 
             string interogare = "SELECT AngajatID FROM AngajatiTbl WHERE Nume='" + AngajatIdTb.Text + "';";
             SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
             SqlCommandBuilder builder = new SqlCommandBuilder(sda);

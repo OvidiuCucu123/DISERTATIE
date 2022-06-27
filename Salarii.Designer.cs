@@ -54,7 +54,6 @@ namespace GESTIUNEANGAJATI
             this.label2 = new System.Windows.Forms.Label();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printFluturas = new System.Drawing.Printing.PrintDocument();
-            this.DateAngajati = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -112,9 +111,9 @@ namespace GESTIUNEANGAJATI
             // 
             this.raport.BackColor = System.Drawing.Color.Cornsilk;
             this.raport.Dock = System.Windows.Forms.DockStyle.Right;
-            this.raport.Location = new System.Drawing.Point(634, 56);
+            this.raport.Location = new System.Drawing.Point(488, 56);
             this.raport.Name = "raport";
-            this.raport.Size = new System.Drawing.Size(372, 583);
+            this.raport.Size = new System.Drawing.Size(518, 583);
             this.raport.TabIndex = 20;
             this.raport.Text = "";
             // 
@@ -292,14 +291,6 @@ namespace GESTIUNEANGAJATI
             // 
             this.printFluturas.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // DateAngajati
-            // 
-            this.DateAngajati.Location = new System.Drawing.Point(634, 53);
-            this.DateAngajati.Name = "DateAngajati";
-            this.DateAngajati.Size = new System.Drawing.Size(372, 270);
-            this.DateAngajati.TabIndex = 38;
-            this.DateAngajati.Text = "";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
@@ -312,7 +303,6 @@ namespace GESTIUNEANGAJATI
             this.button1.TabIndex = 39;
             this.button1.Text = "Preia date";
             this.button1.UseVisualStyleBackColor = false;
-            //this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Salarii
             // 
@@ -321,7 +311,6 @@ namespace GESTIUNEANGAJATI
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1006, 721);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.DateAngajati);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PersoaneIntretinereCb);
             this.Controls.Add(this.AlteRetineriTb);
@@ -379,7 +368,6 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PrintDialog printDialog;
         private System.Drawing.Printing.PrintDocument printFluturas;
-        private System.Windows.Forms.RichTextBox DateAngajati;
         private System.Windows.Forms.Button button1;
     }
 }

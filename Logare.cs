@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GESTIUNEANGAJATI
 {
@@ -14,23 +15,72 @@ namespace GESTIUNEANGAJATI
         {
             InitializeComponent();
         }
+        SqlConnection ConexiuneBaza = new SqlConnection(@"Server=tcp:gestionareangajati.database.windows.net,1433;Initial Catalog=gestionareangajati;Persist Security Info=False;User ID=Ovidiu;Password=Gioada69@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        private void CriptareParola()
+        {
 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (PassTextBox.Text == "" || UserTextBox.Text == "")
             {
                 MessageBox.Show("Introdu Nume de Utilizator si Parola");
             }
-            else if (PassTextBox.Text == "admin" || UserTextBox.Text == "admin")
-            {
-                this.Hide();
-                Acasa PagPrincipala = new Acasa();
-                PagPrincipala.Show();
-            }
             else
             {
-                MessageBox.Show("Nume de Utilizator sau Parola Incorecte");
+                using (SqlCommand Verificare = new SqlCommand())
+                {
+
+                    Verificare.Connection = ConexiuneBaza;
+                    Verificare.CommandType = CommandType.Text;
+                    Verificare.CommandText = "SELECT Nume, Parola FROM Utilizatori WHERE Nume='" + UserTextBox.Text + "';";
+                    Verificare.Parameters.AddWithValue("@UserTextBox", UserTextBox.Text);
+                    Verificare.Parameters.AddWithValue("@PassTextBox", PassTextBox.Text);
+
+                    try
+                    {
+                        ConexiuneBaza.Open();
+                        //Verificare.ExecuteNonQuery();
+                        string name = "";
+                        string pass = "";
+                        var db = Verificare.ExecuteReader();
+                        while (db.Read())
+                        {
+                            name =(string)db[0];
+                            pass =(string)db[1];
+                        }
+                        db.Close();
+                        //UserTextBox.Text = name;
+                        //PassTextBox.Text = pass;
+
+                        ConexiuneBaza.Close();
+                        //Apel functie criptare parola
+                        //VerificareLogare();
+
+                        if (PassTextBox.Text == pass && UserTextBox.Text == name)
+                        {
+                            this.Hide();
+                            Acasa PagPrincipala = new Acasa();
+                            PagPrincipala.Show();
+                            MessageBox.Show("Logare cu succes");
+                        }
+                        else if (PassTextBox.Text != pass || UserTextBox.Text != name)
+                            
+                        {
+                            MessageBox.Show("Date logare incorecte");
+                        }
+                        
+                        //afisare();
+                        //ResetareCampuri();
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show(er.Message);
+                    }
+                }
+
             }
+            
         }
 
         private void label2_Click(object sender, EventArgs e)

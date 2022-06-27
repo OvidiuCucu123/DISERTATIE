@@ -193,11 +193,11 @@ namespace GESTIUNEANGAJATI
         {
             ConexiuneBaza.Open();
             string interogare = "SELECT * FROM AngajatiTbl WHERE Nume like'"+NumeTb.Text+"%'";
-            SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            AfisDate.DataSource = ds.Tables[0];
+            SqlDataAdapter preluaredate = new SqlDataAdapter(interogare, ConexiuneBaza);
+            SqlCommandBuilder builder = new SqlCommandBuilder(preluaredate);
+            var setaredate = new DataSet();
+            preluaredate.Fill(setaredate);
+            AfisDate.DataSource = setaredate.Tables[0];
             ConexiuneBaza.Close();
         }
     }
