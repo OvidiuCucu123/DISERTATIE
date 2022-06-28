@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace GESTIUNEANGAJATI
 {
@@ -16,10 +17,19 @@ namespace GESTIUNEANGAJATI
             InitializeComponent();
         }
         SqlConnection ConexiuneBaza = new SqlConnection(@"Server=tcp:gestionareangajati.database.windows.net,1433;Initial Catalog=gestionareangajati;Persist Security Info=False;User ID=Ovidiu;Password=Gioada69@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-        private void CriptareParola()
+        private string CriptareParola(string cript)
         {
-
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(cript));
+            byte[] Generare = md5.Hash;
+            StringBuilder ParolaCriptata = new StringBuilder();
+            for (int i=1;i<Generare.Length;i++)
+            {
+                ParolaCriptata.Append(Generare[i].ToString("x2"));
+            }
+            return ParolaCriptata.ToString(); 
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (PassTextBox.Text == "" || UserTextBox.Text == "")
@@ -49,29 +59,30 @@ namespace GESTIUNEANGAJATI
                             name =(string)db[0];
                             pass =(string)db[1];
                         }
-                        db.Close();
-                        //UserTextBox.Text = name;
-                        //PassTextBox.Text = pass;
+                        db.Close();                        
 
                         ConexiuneBaza.Close();
                         //Apel functie criptare parola
-                        //VerificareLogare();
+                        
+                        string parolacript = "";
+                        parolacript = PassTextBox.Text;
+                        string rez = CriptareParola(parolacript);
 
-                        if (PassTextBox.Text == pass && UserTextBox.Text == name)
+
+                        if (rez == pass && UserTextBox.Text == name)
                         {
                             this.Hide();
                             Acasa PagPrincipala = new Acasa();
                             PagPrincipala.Show();
                             MessageBox.Show("Logare cu succes");
                         }
-                        else if (PassTextBox.Text != pass || UserTextBox.Text != name)
+                        else if (rez != pass || UserTextBox.Text != name)
                             
                         {
                             MessageBox.Show("Date logare incorecte");
+                           
                         }
-                        
-                        //afisare();
-                        //ResetareCampuri();
+
                     }
                     catch (Exception er)
                     {
