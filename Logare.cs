@@ -40,7 +40,6 @@ namespace GESTIUNEANGAJATI
             {
                 using (SqlCommand Verificare = new SqlCommand())
                 {
-
                     Verificare.Connection = ConexiuneBaza;
                     Verificare.CommandType = CommandType.Text;
                     Verificare.CommandText = "SELECT Nume, Parola FROM Utilizatori WHERE Nume='" + UserTextBox.Text + "';";
@@ -60,14 +59,11 @@ namespace GESTIUNEANGAJATI
                             pass =(string)db[1];
                         }
                         db.Close();                        
-
                         ConexiuneBaza.Close();
-                        //Apel functie criptare parola
-                        
+                                                
                         string parolacript = "";
                         parolacript = PassTextBox.Text;
                         string rez = CriptareParola(parolacript);
-
 
                         if (rez == pass && UserTextBox.Text == name)
                         {
@@ -76,13 +72,10 @@ namespace GESTIUNEANGAJATI
                             PagPrincipala.Show();
                             MessageBox.Show("Logare cu succes");
                         }
-                        else if (rez != pass || UserTextBox.Text != name)
-                            
+                        else if (rez != pass || UserTextBox.Text != name)                           
                         {
-                            MessageBox.Show("Date logare incorecte");
-                           
+                            MessageBox.Show("Date logare incorecte");                          
                         }
-
                     }
                     catch (Exception er)
                     {
