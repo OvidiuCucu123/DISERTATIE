@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GESTIUNEANGAJATI
 {
@@ -14,10 +15,60 @@ namespace GESTIUNEANGAJATI
         {
             InitializeComponent();
         }
+        SqlConnection ConexiuneBaza = new SqlConnection(@"Server=tcp:gestionareangajati.database.windows.net,1433;Initial Catalog=gestionareangajati;Persist Security Info=False;User ID=Ovidiu;Password=Gioada69@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ConexiuneBaza.Open();
+            string interogare = "SELECT AngajatID, Nume FROM AngajatiTbl WHERE Nume like'" + NumeTb.Text + "%'";
+            SqlDataAdapter preluaredate = new SqlDataAdapter(interogare, ConexiuneBaza);
+            SqlCommandBuilder builder = new SqlCommandBuilder(preluaredate);
+            var setaredate = new DataSet();
+            preluaredate.Fill(setaredate);
+            AfisareId.DataSource = setaredate.Tables[0];
+            ConexiuneBaza.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (AngajatIdTb.Text == "" || TipCerereCb.Text == "" || DurataCb.Text == "" || DataInceputCb.Text == "" || DataSfarsitCb.Text == "")
+            {
+                MessageBox.Show("Toate campurile sunt obligatorii");
+            }
+            else
+            {
+                using (SqlCommand Adaugare = new SqlCommand())
+                {
+                    Adaugare.Connection = ConexiuneBaza;
+                    Adaugare.CommandType = CommandType.Text;
+                    Adaugare.CommandText = "INSERT into Cereri (AngajatId, TipCerere, Durata, DataInceput, DataSfarsit) VALUES (@AngajatIdTb, @TipCerereCb, @DurataCb, @DataInceputCb, @DataSfarsitCb)";
+                    Adaugare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
+                    Adaugare.Parameters.AddWithValue("@TipCerereCb", TipCerereCb.Text);
+                    Adaugare.Parameters.AddWithValue("@DurataCb", DurataCb.Text);
+                    Adaugare.Parameters.AddWithValue("@DataInceputCb", DataInceputCb.Text);
+                    Adaugare.Parameters.AddWithValue("@DataSfarsitCb", DataSfarsitCb.Text);
+
+                    try
+                    {
+                        ConexiuneBaza.Open();
+                        Adaugare.ExecuteNonQuery();
+                        ConexiuneBaza.Close();
+                        MessageBox.Show("Cererea a fost depusa");
+                        //afisare();
+                        //ResetareCampuri();
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show(er.Message);
+                    }
+                }
+
+            }
         }
     }
 }

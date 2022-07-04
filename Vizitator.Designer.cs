@@ -31,25 +31,30 @@ namespace GESTIUNEANGAJATI
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.AfisareId = new System.Windows.Forms.DataGridView();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.NumeTb = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AngajatIdTb = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.DurataCb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.DataAngajareCb = new System.Windows.Forms.DateTimePicker();
+            this.DataSfarsitCb = new System.Windows.Forms.DateTimePicker();
+            this.DataInceputCb = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TipCerereCb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AfisareId)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +71,7 @@ namespace GESTIUNEANGAJATI
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.AfisareId);
             this.panel3.Controls.Add(this.textBox3);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.button2);
@@ -76,6 +82,23 @@ namespace GESTIUNEANGAJATI
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(440, 450);
             this.panel3.TabIndex = 1;
+            // 
+            // AfisareId
+            // 
+            this.AfisareId.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AfisareId.Location = new System.Drawing.Point(96, 333);
+            this.AfisareId.Name = "AfisareId";
+            this.AfisareId.RowHeadersWidth = 51;
+            this.AfisareId.RowTemplate.Height = 29;
+            this.AfisareId.Size = new System.Drawing.Size(282, 95);
+            this.AfisareId.TabIndex = 23;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(226, 161);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(51, 27);
+            this.textBox3.TabIndex = 22;
             // 
             // label7
             // 
@@ -121,15 +144,18 @@ namespace GESTIUNEANGAJATI
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.NumeTb);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.AngajatIdTb);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.DurataCb);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.DataAngajareCb);
+            this.panel2.Controls.Add(this.DataSfarsitCb);
+            this.panel2.Controls.Add(this.DataInceputCb);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.TipCerereCb);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -138,12 +164,44 @@ namespace GESTIUNEANGAJATI
             this.panel2.Size = new System.Drawing.Size(363, 450);
             this.panel2.TabIndex = 0;
             // 
-            // textBox1
+            // button5
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 27);
-            this.textBox1.TabIndex = 0;
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(233, 359);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(111, 40);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "CautaId";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // NumeTb
+            // 
+            this.NumeTb.Location = new System.Drawing.Point(94, 372);
+            this.NumeTb.Name = "NumeTb";
+            this.NumeTb.Size = new System.Drawing.Size(116, 27);
+            this.NumeTb.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(12, 372);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 31);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Nume";
+            // 
+            // AngajatIdTb
+            // 
+            this.AngajatIdTb.Location = new System.Drawing.Point(146, 37);
+            this.AngajatIdTb.Name = "AngajatIdTb";
+            this.AngajatIdTb.Size = new System.Drawing.Size(181, 27);
+            this.AngajatIdTb.TabIndex = 0;
             // 
             // label5
             // 
@@ -152,20 +210,21 @@ namespace GESTIUNEANGAJATI
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(21, 37);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 31);
+            this.label5.Size = new System.Drawing.Size(114, 31);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Nume";
+            this.label5.Text = "AngajatId";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // comboBox2
+            // DurataCb
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.DurataCb.FormattingEnabled = true;
+            this.DurataCb.Items.AddRange(new object[] {
             "1 zi",
             "Mai multe zile"});
-            this.comboBox2.Location = new System.Drawing.Point(163, 155);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(135, 28);
-            this.comboBox2.TabIndex = 18;
+            this.DurataCb.Location = new System.Drawing.Point(163, 155);
+            this.DurataCb.Name = "DurataCb";
+            this.DurataCb.Size = new System.Drawing.Size(135, 28);
+            this.DurataCb.TabIndex = 18;
             // 
             // label4
             // 
@@ -189,19 +248,19 @@ namespace GESTIUNEANGAJATI
             this.label3.TabIndex = 16;
             this.label3.Text = "Din data";
             // 
-            // dateTimePicker1
+            // DataSfarsitCb
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(148, 264);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(179, 27);
-            this.dateTimePicker1.TabIndex = 15;
+            this.DataSfarsitCb.Location = new System.Drawing.Point(148, 264);
+            this.DataSfarsitCb.Name = "DataSfarsitCb";
+            this.DataSfarsitCb.Size = new System.Drawing.Size(179, 27);
+            this.DataSfarsitCb.TabIndex = 15;
             // 
-            // DataAngajareCb
+            // DataInceputCb
             // 
-            this.DataAngajareCb.Location = new System.Drawing.Point(148, 209);
-            this.DataAngajareCb.Name = "DataAngajareCb";
-            this.DataAngajareCb.Size = new System.Drawing.Size(179, 27);
-            this.DataAngajareCb.TabIndex = 14;
+            this.DataInceputCb.Location = new System.Drawing.Point(148, 209);
+            this.DataInceputCb.Name = "DataInceputCb";
+            this.DataInceputCb.Size = new System.Drawing.Size(179, 27);
+            this.DataInceputCb.TabIndex = 14;
             // 
             // label2
             // 
@@ -214,18 +273,18 @@ namespace GESTIUNEANGAJATI
             this.label2.TabIndex = 8;
             this.label2.Text = "Durata";
             // 
-            // comboBox1
+            // TipCerereCb
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.TipCerereCb.FormattingEnabled = true;
+            this.TipCerereCb.Items.AddRange(new object[] {
             "Concediu medical",
             "Concediu de odihna",
             "Concediu fara plata"});
-            this.comboBox1.Location = new System.Drawing.Point(163, 97);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(135, 28);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.TipCerereCb.Location = new System.Drawing.Point(163, 97);
+            this.TipCerereCb.Name = "TipCerereCb";
+            this.TipCerereCb.Size = new System.Drawing.Size(135, 28);
+            this.TipCerereCb.TabIndex = 0;
+            this.TipCerereCb.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -244,19 +303,13 @@ namespace GESTIUNEANGAJATI
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(84, 312);
+            this.button1.Location = new System.Drawing.Point(68, 298);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(174, 44);
             this.button1.TabIndex = 6;
             this.button1.Text = "Depune cerere";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(226, 161);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(51, 27);
-            this.textBox3.TabIndex = 22;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Vizitator
             // 
@@ -269,6 +322,7 @@ namespace GESTIUNEANGAJATI
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AfisareId)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -282,19 +336,24 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox TipCerereCb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox DurataCb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker DataAngajareCb;
+        private System.Windows.Forms.DateTimePicker DataSfarsitCb;
+        private System.Windows.Forms.DateTimePicker DataInceputCb;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox AngajatIdTb;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DateTimePicker DataInceCb;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox NumeTb;
+        private System.Windows.Forms.DataGridView AfisareId;
+        private System.Windows.Forms.Button button5;
     }
 }
