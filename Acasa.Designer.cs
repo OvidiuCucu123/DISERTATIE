@@ -40,7 +40,7 @@ namespace GESTIUNEANGAJATI
             this.panelJos = new System.Windows.Forms.Panel();
             this.panelForme = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.NumarAngajati = new System.Windows.Forms.TextBox();
+            this.NumarAngajati = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelMeniu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -200,19 +200,22 @@ namespace GESTIUNEANGAJATI
             // 
             this.NumarAngajati.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
             this.NumarAngajati.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NumarAngajati.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NumarAngajati.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NumarAngajati.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NumarAngajati.ForeColor = System.Drawing.Color.White;
-            this.NumarAngajati.Location = new System.Drawing.Point(29, 97);
+            this.NumarAngajati.Location = new System.Drawing.Point(0, 46);
             this.NumarAngajati.Name = "NumarAngajati";
-            this.NumarAngajati.Size = new System.Drawing.Size(491, 45);
+            this.NumarAngajati.Size = new System.Drawing.Size(756, 164);
             this.NumarAngajati.TabIndex = 2;
+            this.NumarAngajati.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(29, 16);
+            this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(169, 46);
             this.label3.TabIndex = 1;
@@ -256,8 +259,8 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox NumarAngajati;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox NumarAngajati;
     }
 }
 

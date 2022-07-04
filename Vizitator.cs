@@ -70,5 +70,49 @@ namespace GESTIUNEANGAJATI
 
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (CerereIdform.Text == "")
+            {
+                MessageBox.Show("Introdu Id-ul cererii");
+            }
+            else
+            {
+                using (SqlCommand Verificare = new SqlCommand())
+                {
+                    Verificare.Connection = ConexiuneBaza;
+                    Verificare.CommandType = CommandType.Text;
+                    Verificare.CommandText = "SELECT Stare FROM Cereri WHERE CerereId='" + CerereIdform.Text + "';";
+                    Verificare.Parameters.AddWithValue("@CerereIdform", CerereIdform.Text);                   
+
+                    try
+                    {
+                        ConexiuneBaza.Open();
+                        //Verificare.ExecuteNonQuery();
+                        string name = "";
+                        
+                        var db = Verificare.ExecuteReader();
+                        while (db.Read())
+                        {
+                            name = (string)db[0];
+                            
+                        }
+                        db.Close();
+                        ConexiuneBaza.Close();
+                        CerereIdform.Text = name;
+
+
+
+
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show(er.Message);
+                    }
+                }
+
+            }
+        }
     }
 }

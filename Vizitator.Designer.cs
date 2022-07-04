@@ -32,10 +32,10 @@ namespace GESTIUNEANGAJATI
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.AfisareId = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.StatusCerere = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CerereIdform = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -72,10 +72,10 @@ namespace GESTIUNEANGAJATI
             // panel3
             // 
             this.panel3.Controls.Add(this.AfisareId);
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.StatusCerere);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.CerereIdform);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(360, 0);
@@ -93,12 +93,12 @@ namespace GESTIUNEANGAJATI
             this.AfisareId.Size = new System.Drawing.Size(282, 95);
             this.AfisareId.TabIndex = 23;
             // 
-            // textBox3
+            // StatusCerere
             // 
-            this.textBox3.Location = new System.Drawing.Point(226, 161);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(51, 27);
-            this.textBox3.TabIndex = 22;
+            this.StatusCerere.Location = new System.Drawing.Point(226, 161);
+            this.StatusCerere.Name = "StatusCerere";
+            this.StatusCerere.Size = new System.Drawing.Size(152, 27);
+            this.StatusCerere.TabIndex = 22;
             // 
             // label7
             // 
@@ -123,13 +123,14 @@ namespace GESTIUNEANGAJATI
             this.button2.TabIndex = 20;
             this.button2.Text = "Vizualizare status cerere";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox2
+            // CerereIdform
             // 
-            this.textBox2.Location = new System.Drawing.Point(226, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(181, 27);
-            this.textBox2.TabIndex = 20;
+            this.CerereIdform.Location = new System.Drawing.Point(226, 67);
+            this.CerereIdform.Name = "CerereIdform";
+            this.CerereIdform.Size = new System.Drawing.Size(181, 27);
+            this.CerereIdform.TabIndex = 20;
             // 
             // label6
             // 
@@ -346,10 +347,10 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.DateTimePicker DataInceputCb;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox CerereIdform;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox AngajatIdTb;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox StatusCerere;
         private System.Windows.Forms.DateTimePicker DataInceCb;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox NumeTb;

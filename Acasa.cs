@@ -26,16 +26,25 @@ namespace GESTIUNEANGAJATI
         }
         private void ArataNumarAngajati()
         {
-            SqlCommand numara;
+            SqlCommand numara, media, cereri;
             string interogare = "SELECT COUNT(AngajatID) FROM AngajatiTbl";
+            string interogare2 = "SELECT AVG(Salariulbrut) FROM SalariiTbl";
+            string interogare3 = "SELECT COUNT(CerereId) FROM Cereri WHERE Stare=('Neaprobat')";
+
             try
             {
                 ConexiuneBaza.Open();
                 numara = new SqlCommand(interogare, ConexiuneBaza);
+                media = new SqlCommand(interogare2, ConexiuneBaza);
+                cereri = new SqlCommand(interogare3, ConexiuneBaza);
                 Int32 numar_angajati = Convert.ToInt32(numara.ExecuteScalar());
+                Int32 media_angajati = Convert.ToInt32(media.ExecuteScalar());
+                Int32 cereri_angajati = Convert.ToInt32(cereri.ExecuteScalar());
                 numara.Dispose();
+                media.Dispose();
+                cereri.Dispose();
                 ConexiuneBaza.Close();
-                NumarAngajati.Text = "In prezent aveti: " + numar_angajati.ToString() + " angajati";
+                NumarAngajati.Text = "In prezent aveti: " + numar_angajati.ToString() + " angajati \n" + "Media salariul brut este: " + media_angajati.ToString() + " lei \n" + "Aveti : " + cereri_angajati.ToString() + " cereri neaprobate";
             }
             catch (Exception er)
             {
