@@ -40,6 +40,7 @@ namespace GESTIUNEANGAJATI
             this.panelJos = new System.Windows.Forms.Panel();
             this.RetineId = new System.Windows.Forms.TextBox();
             this.panelForme = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.AcasaCereri = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -194,6 +195,7 @@ namespace GESTIUNEANGAJATI
             // panelForme
             // 
             this.panelForme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
+            this.panelForme.Controls.Add(this.button4);
             this.panelForme.Controls.Add(this.AcasaCereri);
             this.panelForme.Controls.Add(this.button3);
             this.panelForme.Controls.Add(this.button2);
@@ -205,6 +207,20 @@ namespace GESTIUNEANGAJATI
             this.panelForme.Size = new System.Drawing.Size(756, 524);
             this.panelForme.TabIndex = 2;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(23, 248);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(254, 42);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "Cereri Aprobate";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AcasaCereri
             // 
             this.AcasaCereri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -212,6 +228,7 @@ namespace GESTIUNEANGAJATI
             this.AcasaCereri.Name = "AcasaCereri";
             this.AcasaCereri.RowHeadersWidth = 51;
             this.AcasaCereri.RowTemplate.Height = 29;
+            this.AcasaCereri.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AcasaCereri.Size = new System.Drawing.Size(698, 188);
             this.AcasaCereri.TabIndex = 19;
             this.AcasaCereri.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcasaCereri_CellClick);
@@ -250,11 +267,11 @@ namespace GESTIUNEANGAJATI
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(6, 248);
+            this.button1.Location = new System.Drawing.Point(23, 178);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(254, 42);
             this.button1.TabIndex = 16;
-            this.button1.Text = "Vizualizeaza Cereri";
+            this.button1.Text = "Cereri Neaprobate";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -342,6 +359,7 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox RetineId;
+        private System.Windows.Forms.Button button4;
     }
 }
 

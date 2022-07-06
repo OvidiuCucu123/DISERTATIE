@@ -29,7 +29,7 @@ namespace GESTIUNEANGAJATI
             SqlCommand numara, media, cereri;
             string interogare = "SELECT COUNT(AngajatID) FROM AngajatiTbl";
             string interogare2 = "SELECT AVG(Salariulbrut) FROM SalariiTbl";
-            string interogare3 = "SELECT COUNT(CerereId) FROM Cereri WHERE Stare=('Neaprobat')";
+            string interogare3 = "SELECT COUNT(CerereId) FROM Cereri WHERE Stare=('Neaprobata')";
 
             try
             {
@@ -74,16 +74,19 @@ namespace GESTIUNEANGAJATI
         {
             DeschideFereastraNoua(new Angajat());
         }
-
-        private void buttonAcasa_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonSalarii_Click(object sender, EventArgs e)
         {
             DeschideFereastraNoua(new Salarii());
         }
+        private void buttonAcasa_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Acasa PagAcasa = new Acasa();
+            PagAcasa.Show();
+            
+        }
+
+     
 
         private void buttonRapoarte_Click(object sender, EventArgs e)
         {
@@ -107,7 +110,18 @@ namespace GESTIUNEANGAJATI
             AcasaCereri.DataSource = ds.Tables[0];
             ConexiuneBaza.Close();
         }
-   
+        private void afisare2()
+        {
+            ConexiuneBaza.Open();
+            string interogare = "SELECT * FROM Cereri WHERE Stare=('Aprobata')";
+            SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            AcasaCereri.DataSource = ds.Tables[0];
+            ConexiuneBaza.Close();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             afisare();
@@ -129,7 +143,7 @@ namespace GESTIUNEANGAJATI
                     ConexiuneBaza.Open();
                     Modificare.ExecuteNonQuery();
                     ConexiuneBaza.Close();
-                    MessageBox.Show("Angajatulul a fost actualizat");
+                    MessageBox.Show("Cererea a fost aprobata");
                     afisare();
                     //ResetareCampuri();
 
@@ -149,9 +163,12 @@ namespace GESTIUNEANGAJATI
         private void AcasaCereri_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //AcasaCereri.CellsCount = 7;
-            RetineId.Text = AcasaCereri.SelectedRows[0].Cells[0].Value.ToString();
+            //RetineId.Text = AcasaCereri.SelectedRows[0].Cells[0].Value.ToString();
         }
 
-        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            afisare2();
+        }
     }
 }
