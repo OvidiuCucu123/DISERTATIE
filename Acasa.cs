@@ -18,7 +18,7 @@ namespace GESTIUNEANGAJATI
             InitializeComponent();
         }
         SqlConnection ConexiuneBaza = new SqlConnection(@"Server=tcp:gestionareangajati.database.windows.net,1433;Initial Catalog=gestionareangajati;Persist Security Info=False;User ID=Ovidiu;Password=Gioada69@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-
+        
         private void Acasa_Load(object sender, EventArgs e)
         {
             ArataNumarAngajati();
@@ -96,5 +96,62 @@ namespace GESTIUNEANGAJATI
             Logare PagLogin = new Logare();
             PagLogin.Show();
         }
+        private void afisare()
+        {
+            ConexiuneBaza.Open();
+            string interogare = "SELECT * FROM Cereri WHERE Stare=('Neaprobata')";
+            SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
+            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            AcasaCereri.DataSource = ds.Tables[0];
+            ConexiuneBaza.Close();
+        }
+   
+        private void button1_Click(object sender, EventArgs e)
+        {
+            afisare();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string status = "Aprobata";
+            //int id_cerere = this.CerereId;
+            SqlCommand Modificare = new SqlCommand("UPDATE Cereri SET Stare=@status", ConexiuneBaza);
+            {
+                
+                Modificare.CommandType = CommandType.Text;
+                Modificare.Parameters.AddWithValue("@status", status);
+                //Modificare.Parameters.AddWithValue("@RetineId", RetineId.Text);
+                try
+                {
+                    
+                    ConexiuneBaza.Open();
+                    Modificare.ExecuteNonQuery();
+                    ConexiuneBaza.Close();
+                    MessageBox.Show("Angajatulul a fost actualizat");
+                    afisare();
+                    //ResetareCampuri();
+
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message);
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new Acasa();
+        }
+
+        private void AcasaCereri_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //AcasaCereri.CellsCount = 7;
+            RetineId.Text = AcasaCereri.SelectedRows[0].Cells[0].Value.ToString();
+        }
+
+        
     }
 }
