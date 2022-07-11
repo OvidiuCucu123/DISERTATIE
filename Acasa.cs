@@ -129,35 +129,44 @@ namespace GESTIUNEANGAJATI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string status = "Aprobata";
-            //int id_cerere = this.CerereId;
-            SqlCommand Modificare = new SqlCommand("UPDATE Cereri SET Stare=@status", ConexiuneBaza);
+            if (cerere.Text == "")
             {
-                
-                Modificare.CommandType = CommandType.Text;
-                Modificare.Parameters.AddWithValue("@status", status);
-                //Modificare.Parameters.AddWithValue("@RetineId", RetineId.Text);
-                try
+                MessageBox.Show("Introdu Id Cerere");
+            }
+            else
+            {
+                string status = "Aprobata";
+                //int id_cerere = this.CerereId;
+                SqlCommand Modificare = new SqlCommand("UPDATE Cereri SET Stare=@status WHERE CerereId='" + cerere.Text + "';", ConexiuneBaza);
                 {
-                    
-                    ConexiuneBaza.Open();
-                    Modificare.ExecuteNonQuery();
-                    ConexiuneBaza.Close();
-                    MessageBox.Show("Cererea a fost aprobata");
-                    afisare();
-                    //ResetareCampuri();
 
-                }
-                catch (Exception er)
-                {
-                    MessageBox.Show(er.Message);
+                    Modificare.CommandType = CommandType.Text;
+                    Modificare.Parameters.AddWithValue("@status", status);
+                    //Modificare.Parameters.AddWithValue("@RetineId", RetineId.Text);
+                    try
+                    {
+
+                        ConexiuneBaza.Open();
+                        Modificare.ExecuteNonQuery();
+                        ConexiuneBaza.Close();
+                        MessageBox.Show("Cererea a fost aprobata");
+                        afisare();
+                        //ResetareCampuri();
+
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show(er.Message);
+                    }
                 }
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new Acasa();
+            this.Hide();
+            Acasa PagAcasa = new Acasa();
+            PagAcasa.Show();
         }
 
         private void AcasaCereri_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -169,6 +178,11 @@ namespace GESTIUNEANGAJATI
         private void button4_Click(object sender, EventArgs e)
         {
             afisare2();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

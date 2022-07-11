@@ -38,8 +38,9 @@ namespace GESTIUNEANGAJATI
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelJos = new System.Windows.Forms.Panel();
-            this.RetineId = new System.Windows.Forms.TextBox();
             this.panelForme = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cerere = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.AcasaCereri = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@ namespace GESTIUNEANGAJATI
             this.panelMeniu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelJos.SuspendLayout();
             this.panelForme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AcasaCereri)).BeginInit();
             this.panel1.SuspendLayout();
@@ -177,24 +177,17 @@ namespace GESTIUNEANGAJATI
             // panelJos
             // 
             this.panelJos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(16)))), ((int)(((byte)(6)))));
-            this.panelJos.Controls.Add(this.RetineId);
             this.panelJos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelJos.Location = new System.Drawing.Point(250, 524);
             this.panelJos.Name = "panelJos";
             this.panelJos.Size = new System.Drawing.Size(756, 70);
             this.panelJos.TabIndex = 1;
             // 
-            // RetineId
-            // 
-            this.RetineId.BackColor = System.Drawing.Color.Black;
-            this.RetineId.Location = new System.Drawing.Point(691, 6);
-            this.RetineId.Name = "RetineId";
-            this.RetineId.Size = new System.Drawing.Size(53, 30);
-            this.RetineId.TabIndex = 20;
-            // 
             // panelForme
             // 
             this.panelForme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
+            this.panelForme.Controls.Add(this.label2);
+            this.panelForme.Controls.Add(this.cerere);
             this.panelForme.Controls.Add(this.button4);
             this.panelForme.Controls.Add(this.AcasaCereri);
             this.panelForme.Controls.Add(this.button3);
@@ -206,6 +199,25 @@ namespace GESTIUNEANGAJATI
             this.panelForme.Name = "panelForme";
             this.panelForme.Size = new System.Drawing.Size(756, 524);
             this.panelForme.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(351, 190);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 31);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Introdu Id cerere";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // cerere
+            // 
+            this.cerere.Location = new System.Drawing.Point(550, 191);
+            this.cerere.Name = "cerere";
+            this.cerere.Size = new System.Drawing.Size(139, 30);
+            this.cerere.TabIndex = 6;
             // 
             // button4
             // 
@@ -329,9 +341,8 @@ namespace GESTIUNEANGAJATI
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelJos.ResumeLayout(false);
-            this.panelJos.PerformLayout();
             this.panelForme.ResumeLayout(false);
+            this.panelForme.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AcasaCereri)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -358,8 +369,9 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox RetineId;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox cerere;
+        private System.Windows.Forms.Label label2;
     }
 }
 

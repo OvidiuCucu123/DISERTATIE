@@ -31,6 +31,8 @@ namespace GESTIUNEANGAJATI
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.generat = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.AfisareId = new System.Windows.Forms.DataGridView();
             this.StatusCerere = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,8 +54,7 @@ namespace GESTIUNEANGAJATI
             this.TipCerereCb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.generat = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AfisareId)).BeginInit();
@@ -86,6 +87,24 @@ namespace GESTIUNEANGAJATI
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(440, 450);
             this.panel3.TabIndex = 1;
+            // 
+            // generat
+            // 
+            this.generat.Location = new System.Drawing.Point(226, 56);
+            this.generat.Name = "generat";
+            this.generat.Size = new System.Drawing.Size(181, 27);
+            this.generat.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(25, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(188, 31);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Id cerere generat";
             // 
             // AfisareId
             // 
@@ -149,6 +168,7 @@ namespace GESTIUNEANGAJATI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.NumeTb);
             this.panel2.Controls.Add(this.label8);
@@ -185,7 +205,7 @@ namespace GESTIUNEANGAJATI
             // 
             // NumeTb
             // 
-            this.NumeTb.Location = new System.Drawing.Point(94, 372);
+            this.NumeTb.Location = new System.Drawing.Point(94, 359);
             this.NumeTb.Name = "NumeTb";
             this.NumeTb.Size = new System.Drawing.Size(116, 27);
             this.NumeTb.TabIndex = 21;
@@ -195,7 +215,7 @@ namespace GESTIUNEANGAJATI
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(12, 372);
+            this.label8.Location = new System.Drawing.Point(12, 355);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 31);
             this.label8.TabIndex = 20;
@@ -316,23 +336,19 @@ namespace GESTIUNEANGAJATI
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label9
+            // button3
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(25, 56);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(188, 31);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Id cerere generat";
-            // 
-            // generat
-            // 
-            this.generat.Location = new System.Drawing.Point(226, 56);
-            this.generat.Name = "generat";
-            this.generat.Size = new System.Drawing.Size(181, 27);
-            this.generat.TabIndex = 25;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(14)))), ((int)(((byte)(84)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(40, 400);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(105, 38);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "Inapoi";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Vizitator
             // 
@@ -380,5 +396,6 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox generat;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button3;
     }
 }
