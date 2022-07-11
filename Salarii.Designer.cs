@@ -63,7 +63,7 @@ namespace GESTIUNEANGAJATI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1006, 56);
+            this.panel1.Size = new System.Drawing.Size(1006, 66);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -111,9 +111,9 @@ namespace GESTIUNEANGAJATI
             // 
             this.raport.BackColor = System.Drawing.Color.Cornsilk;
             this.raport.Dock = System.Windows.Forms.DockStyle.Right;
-            this.raport.Location = new System.Drawing.Point(488, 56);
+            this.raport.Location = new System.Drawing.Point(488, 66);
             this.raport.Name = "raport";
-            this.raport.Size = new System.Drawing.Size(518, 583);
+            this.raport.Size = new System.Drawing.Size(518, 573);
             this.raport.TabIndex = 20;
             this.raport.Text = "";
             // 

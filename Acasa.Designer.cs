@@ -229,7 +229,7 @@ namespace GESTIUNEANGAJATI
             this.AcasaCereri.RowHeadersWidth = 51;
             this.AcasaCereri.RowTemplate.Height = 29;
             this.AcasaCereri.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AcasaCereri.Size = new System.Drawing.Size(698, 188);
+            this.AcasaCereri.Size = new System.Drawing.Size(1000, 188);
             this.AcasaCereri.TabIndex = 19;
             this.AcasaCereri.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcasaCereri_CellClick);
             // 

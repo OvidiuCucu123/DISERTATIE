@@ -21,7 +21,29 @@ namespace GESTIUNEANGAJATI
         {
 
         }
+        private void AfisareCerere()
+        {
+            using (SqlCommand Afisare = new SqlCommand())
+            {
+                Afisare.Connection = ConexiuneBaza;
+                Afisare.CommandType = CommandType.Text;
+                Afisare.CommandText = "SELECT CerereId FROM Cereri WHERE AngajatId='" + AngajatIdTb.Text + "';";
+                Afisare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);
+                try
+                {
+                    ConexiuneBaza.Open();
 
+                    var a = Afisare.ExecuteScalar();
+                    
+                    ConexiuneBaza.Close();
+                    generat.Text = a.ToString();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message);
+                }
+            }
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             ConexiuneBaza.Open();
@@ -59,15 +81,16 @@ namespace GESTIUNEANGAJATI
                         Adaugare.ExecuteNonQuery();
                         ConexiuneBaza.Close();
                         MessageBox.Show("Cererea a fost depusa");
-                        //afisare();
+                        
                         //ResetareCampuri();
                     }
                     catch (Exception er)
                     {
                         MessageBox.Show(er.Message);
                     }
+                    
                 }
-
+                AfisareCerere();
             }
         }
 
@@ -100,7 +123,7 @@ namespace GESTIUNEANGAJATI
                         }
                         db.Close();
                         ConexiuneBaza.Close();
-                        CerereIdform.Text = name;
+                        StatusCerere.Text = name;
 
 
 

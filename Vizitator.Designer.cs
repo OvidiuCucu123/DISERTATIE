@@ -52,6 +52,8 @@ namespace GESTIUNEANGAJATI
             this.TipCerereCb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.generat = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AfisareId)).BeginInit();
@@ -71,6 +73,8 @@ namespace GESTIUNEANGAJATI
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.generat);
+            this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.AfisareId);
             this.panel3.Controls.Add(this.StatusCerere);
             this.panel3.Controls.Add(this.label7);
@@ -107,9 +111,9 @@ namespace GESTIUNEANGAJATI
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(25, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(190, 31);
+            this.label7.Size = new System.Drawing.Size(145, 31);
             this.label7.TabIndex = 21;
-            this.label7.Text = "Cerere aprobata: ";
+            this.label7.Text = "Status cerere";
             // 
             // button2
             // 
@@ -121,13 +125,13 @@ namespace GESTIUNEANGAJATI
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(282, 44);
             this.button2.TabIndex = 20;
-            this.button2.Text = "Vizualizare status cerere";
+            this.button2.Text = "Verifica cerere";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // CerereIdform
             // 
-            this.CerereIdform.Location = new System.Drawing.Point(226, 67);
+            this.CerereIdform.Location = new System.Drawing.Point(226, 106);
             this.CerereIdform.Name = "CerereIdform";
             this.CerereIdform.Size = new System.Drawing.Size(181, 27);
             this.CerereIdform.TabIndex = 20;
@@ -137,7 +141,7 @@ namespace GESTIUNEANGAJATI
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(25, 63);
+            this.label6.Location = new System.Drawing.Point(25, 106);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(184, 31);
             this.label6.TabIndex = 20;
@@ -312,6 +316,24 @@ namespace GESTIUNEANGAJATI
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(25, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(188, 31);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Id cerere generat";
+            // 
+            // generat
+            // 
+            this.generat.Location = new System.Drawing.Point(226, 56);
+            this.generat.Name = "generat";
+            this.generat.Size = new System.Drawing.Size(181, 27);
+            this.generat.TabIndex = 25;
+            // 
             // Vizitator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -356,5 +378,7 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.TextBox NumeTb;
         private System.Windows.Forms.DataGridView AfisareId;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox generat;
+        private System.Windows.Forms.Label label9;
     }
 }
