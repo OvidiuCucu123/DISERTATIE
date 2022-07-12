@@ -188,7 +188,11 @@ namespace GESTIUNEANGAJATI
             this.DepartamentCb.Items.AddRange(new object[] {
             "Conducere",
             "Administratie",
-            "Resurse Umane"});
+            "Resurse Umane",
+            "Tehnic",
+            "Calitate",
+            "Logistica",
+            "IT"});
             this.DepartamentCb.Location = new System.Drawing.Point(192, 313);
             this.DepartamentCb.Name = "DepartamentCb";
             this.DepartamentCb.Size = new System.Drawing.Size(177, 28);
@@ -205,8 +209,11 @@ namespace GESTIUNEANGAJATI
             // 
             this.FunctiaCb.FormattingEnabled = true;
             this.FunctiaCb.Items.AddRange(new object[] {
-            "Muncitor",
-            "Inginer"});
+            "Operator",
+            "Inginer",
+            "Tehnician",
+            "Sef Proiect",
+            "Director"});
             this.FunctiaCb.Location = new System.Drawing.Point(194, 264);
             this.FunctiaCb.Name = "FunctiaCb";
             this.FunctiaCb.Size = new System.Drawing.Size(177, 28);

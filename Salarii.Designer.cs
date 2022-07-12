@@ -55,6 +55,7 @@ namespace GESTIUNEANGAJATI
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printFluturas = new System.Drawing.Printing.PrintDocument();
             this.button1 = new System.Windows.Forms.Button();
+            this.DatePers = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // panel1
@@ -111,9 +112,9 @@ namespace GESTIUNEANGAJATI
             // 
             this.raport.BackColor = System.Drawing.Color.Cornsilk;
             this.raport.Dock = System.Windows.Forms.DockStyle.Right;
-            this.raport.Location = new System.Drawing.Point(488, 66);
+            this.raport.Location = new System.Drawing.Point(704, 66);
             this.raport.Name = "raport";
-            this.raport.Size = new System.Drawing.Size(518, 573);
+            this.raport.Size = new System.Drawing.Size(302, 573);
             this.raport.TabIndex = 20;
             this.raport.Text = "";
             // 
@@ -303,6 +304,17 @@ namespace GESTIUNEANGAJATI
             this.button1.TabIndex = 39;
             this.button1.Text = "Preia date";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // DatePers
+            // 
+            this.DatePers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DatePers.BackColor = System.Drawing.Color.Cornsilk;
+            this.DatePers.Location = new System.Drawing.Point(506, 120);
+            this.DatePers.Name = "DatePers";
+            this.DatePers.Size = new System.Drawing.Size(104, 52);
+            this.DatePers.TabIndex = 40;
+            this.DatePers.Text = "";
             // 
             // Salarii
             // 
@@ -310,6 +322,7 @@ namespace GESTIUNEANGAJATI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.DatePers);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PersoaneIntretinereCb);
@@ -336,6 +349,7 @@ namespace GESTIUNEANGAJATI
             this.Controls.Add(this.panel1);
             this.Name = "Salarii";
             this.Text = "Salarii";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,5 +383,6 @@ namespace GESTIUNEANGAJATI
         private System.Windows.Forms.PrintDialog printDialog;
         private System.Drawing.Printing.PrintDocument printFluturas;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox DatePers;
     }
 }

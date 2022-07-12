@@ -16,17 +16,25 @@ namespace GESTIUNEANGAJATI
             InitializeComponent();
         }
         SqlConnection ConexiuneBaza = new SqlConnection(@"Server=tcp:gestionareangajati.database.windows.net,1433;Initial Catalog=gestionareangajati;Persist Security Info=False;User ID=Ovidiu;Password=Gioada69@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-        private void afisare()
+        private void AfisareNume()
         {
-            ConexiuneBaza.Open(); 
-            string interogare = "SELECT AngajatID FROM AngajatiTbl WHERE Nume='" + AngajatIdTb.Text + "';";
-            SqlDataAdapter sda = new SqlDataAdapter(interogare, ConexiuneBaza);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            //var ds = new DataSet();
-            //sda.Fill(ds);
-            //AfisareID.DataSource = ds.Tables[0];
-            
-            ConexiuneBaza.Close();
+            using (SqlCommand Afisare = new SqlCommand())
+            {
+                Afisare.Connection = ConexiuneBaza;
+                Afisare.CommandType = CommandType.Text;
+                Afisare.CommandText = "SELECT Nume FROM AngajatiTbl WHERE AngajatId='" + AngajatIdTb.Text + "';";
+                Afisare.Parameters.AddWithValue("@AngajatIdTb", AngajatIdTb.Text);              
+                try {  
+                    ConexiuneBaza.Open();
+                    var a = Afisare.ExecuteScalar();
+                    ConexiuneBaza.Close();
+                    DatePers.Text = a.ToString();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message);
+                }
+            }
         }
         
         private void CalculSalariu()
@@ -78,10 +86,10 @@ namespace GESTIUNEANGAJATI
                 "\n deducere: " + deducere.ToString() + "\n impozitsalariu: " + impozitsalariu.ToString("N") +
                 "\n contributii: " + contributii.ToString(); 
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            afisare();
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    afisare();
+        //}
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -113,7 +121,7 @@ namespace GESTIUNEANGAJATI
                             ConexiuneBaza.Open();
                             Adaugare.ExecuteNonQuery();
                             ConexiuneBaza.Close();
-                            MessageBox.Show("Angajatul a fost introdus");
+                            MessageBox.Show("Salariatul a fost introdus");
                             //afisare();
                             //ResetareCampuri();
                             
@@ -149,20 +157,29 @@ namespace GESTIUNEANGAJATI
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString(raport.Text + raport.Text, new Font("Arial", 30, FontStyle.Bold), Brushes.Black, 30, 30);
+            e.Graphics.DrawString(DatePers.Text + raport.Text, new Font("Arial", 30, FontStyle.Bold), Brushes.Black, 30, 30);
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+           
+            AfisareNume();
+            
+        }
+
+
 
         //private void button1_Click_1(object sender, EventArgs e)
         //{
         //    ConexiuneBaza.Open();
-            
-            
+
+
         //        SqlCommand PreiaDate = new SqlCommand("SELECT Nume FROM AngajatiTbl WHERE AngajatID = @AngajatIdTb", ConexiuneBaza);
         //        PreiaDate.Parameters.AddWithValue("AngajatIdTb", int.Parse(AngajatIdTb.Text));
         //        SqlDataReader citeste = PreiaDate.ExecuteReader();                               
         //        DateAngajati.Text = citeste.GetValue(1).ToString();
-                
-            
+
+
         //    ConexiuneBaza.Close();
         //}
     }
