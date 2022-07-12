@@ -108,26 +108,18 @@ namespace GESTIUNEANGAJATI
                     Verificare.CommandType = CommandType.Text;
                     Verificare.CommandText = "SELECT Stare FROM Cereri WHERE CerereId='" + CerereIdform.Text + "';";
                     Verificare.Parameters.AddWithValue("@CerereIdform", CerereIdform.Text);                   
-
                     try
                     {
-                        ConexiuneBaza.Open();
-                        //Verificare.ExecuteNonQuery();
-                        string name = "";
-                        
+                        ConexiuneBaza.Open();                        
+                        string name = "";                       
                         var db = Verificare.ExecuteReader();
                         while (db.Read())
                         {
-                            name = (string)db[0];
-                            
+                            name = (string)db[0];                            
                         }
                         db.Close();
                         ConexiuneBaza.Close();
                         StatusCerere.Text = name;
-
-
-
-
                     }
                     catch (Exception er)
                     {
