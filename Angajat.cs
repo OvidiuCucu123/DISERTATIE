@@ -184,7 +184,7 @@ namespace GESTIUNEANGAJATI
             NumeTb.Text = AfisDate.SelectedRows[0].Cells[1].Value.ToString();
             AdresaTb.Text = AfisDate.SelectedRows[0].Cells[2].Value.ToString();
             TelefonTb.Text = AfisDate.SelectedRows[0].Cells[3].Value.ToString();
-            DataAngajareCb.Text = AfisDate.SelectedRows[0].Cells[4].Value.ToString();
+            //DataAngajareCb.Text = AfisDate.SelectedRows[0].Cells[4].Value.ToString();
             FunctiaCb.Text = AfisDate.SelectedRows[0].Cells[5].Value.ToString();
             DepartamentCb.Text = AfisDate.SelectedRows[0].Cells[6].Value.ToString();
         }

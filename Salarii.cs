@@ -39,7 +39,8 @@ namespace GESTIUNEANGAJATI
         
         private void CalculSalariu()
         {
-            double salariulbrut, salariulnet=0, orelucrate, sporuri, zileconcediu, concediu=0, prime, altebonusuri, alteretineri, restdeplata=0, persoaneintretinere, deducere=0, impozitsalariu=0, contributii=0;
+            double salariulbrut, salariulnet=0, orelucrate, sporuri, zileconcediu, concediu=0, 
+            prime, altebonusuri, alteretineri, restdeplata=0, persoaneintretinere, deducere=0, impozitsalariu=0, contributii=0;
             salariulbrut = Convert.ToDouble(SalariulBrutTb.Text);
             orelucrate = Convert.ToDouble(OreLucrateTb.Text);
             sporuri = Convert.ToDouble(SporuriTb.Text);
@@ -51,9 +52,7 @@ namespace GESTIUNEANGAJATI
 
             switch (persoaneintretinere)
             {
-                case 1:
-                    deducere = 350 * (1 - ((salariulbrut - 1000) / 2000))*6;
-                    break;
+                case 1: deducere = 350 * (1 - ((salariulbrut - 1000) / 2000))*6; break;
                 case 2:
                     deducere = 450 * (1 - ((salariulbrut - 1000) / 2000))*6;
                     break;
@@ -82,9 +81,11 @@ namespace GESTIUNEANGAJATI
                 impozitsalariu = 0.1 * (salariulbrut - contributii - deducere);
                 salariulnet = salariulbrut - (0.25 * salariulbrut) - (0.1 * salariulbrut) - impozitsalariu;
             
-            raport.Text = "Venit brut: " + salariulbrut.ToString() + "\n Salariu net: " + salariulnet.ToString() +
-                "\n deducere: " + deducere.ToString() + "\n impozitsalariu: " + impozitsalariu.ToString("N") +
-                "\n contributii: " + contributii.ToString(); 
+            raport.Text = " Venit brut: " + salariulbrut.ToString("N") +
+                "\n Deducere: " + deducere.ToString("N") + "\n Impozitsalariu: " + impozitsalariu.ToString("N") +
+                "\n Contributii: " + contributii.ToString("N") + "\n Sporuri: " + sporuri.ToString("N") + 
+                "\n Prime: " + prime.ToString("N") + "\n Alte bonusuri: " + altebonusuri.ToString("N") + 
+                "\n Alte retineri: " + alteretineri.ToString("N") + "\n Salariu net: " + salariulnet.ToString("N"); 
         }
         //private void button1_Click(object sender, EventArgs e)
         //{
@@ -157,7 +158,7 @@ namespace GESTIUNEANGAJATI
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString(DatePers.Text + raport.Text, new Font("Arial", 30, FontStyle.Bold), Brushes.Black, 30, 30);
+            e.Graphics.DrawString(DatePers.Text+ "\n \n" + raport.Text, new Font("Arial", 30, FontStyle.Bold), Brushes.Black, 30, 30);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
