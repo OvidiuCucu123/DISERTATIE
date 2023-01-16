@@ -1,4 +1,4 @@
-# DISERTATIE
-![](https://github.com/GESTIUNE-ANGAJATI/demo-app.gif)
+# GESTIUNE-ANGAJATI
+![](https://github.com/OvidiuCucu123/GESTIUNE-ANGAJATI/demo-app.gif)
 
 gf
