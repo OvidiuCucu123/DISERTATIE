@@ -1,4 +1,4 @@
 # GESTIUNE-ANGAJATI
-![](https://github.com/OvidiuCucu123/GESTIUNE-ANGAJATI/demo-app.gif)
+![](https://github.com/OvidiuCucu123/GESTIUNE-ANGAJATI/demo-aplicatie.gif)
 
 gf
