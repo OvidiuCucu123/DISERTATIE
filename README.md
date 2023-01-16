@@ -1,3 +1,3 @@
 # DISERTATIE
-![](https://github.com/GESTIUNE-ANGAJATI/demo-aplicatie.gif)
+![](https://github.com/GESTIUNE-ANGAJATI/demo-app.gif)
 
