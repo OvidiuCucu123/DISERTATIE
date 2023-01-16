@@ -1,2 +1,3 @@
 # DISERTATIE
-v1.0 Interfata + CRUD Angajati
+![](https://github.com/GESTIUNE-ANGAJATI/demo-aplicatie.gif)
+
